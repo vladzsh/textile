@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html class="light" lang="tr">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Sebih Textile - Premium Fabric Solutions</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/history@5/umd/history.development.js"></script>
+    <script src="https://unpkg.com/react-router@6.3.0/umd/react-router.development.js"></script>
+    <script src="https://unpkg.com/react-router-dom@6.3.0/umd/react-router-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error-container": "#93000a",
+              "outline-variant": "#c5c6cf",
+              "primary-fixed": "#d9e2ff",
+              "on-tertiary-fixed": "#271903",
+              "on-tertiary": "#ffffff",
+              "tertiary": "#211401",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#8392b7",
+              "tertiary-container": "#38280f",
+              "on-primary-fixed": "#0a1a3a",
+              "primary-container": "#1b2a4a",
+              "error": "#ba1a1a",
+              "on-background": "#1b1c1a",
+              "surface-container-high": "#eae8e5",
+              "surface-container-low": "#f5f3f0",
+              "on-surface-variant": "#45464e",
+              "on-secondary-container": "#795f2b",
+              "surface-variant": "#e4e2df",
+              "background": "#fbf9f6",
+              "tertiary-fixed-dim": "#ddc39f",
+              "secondary-fixed-dim": "#e4c285",
+              "outline": "#75777f",
+              "surface-bright": "#fbf9f6",
+              "surface-container-highest": "#e4e2df",
+              "on-error": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-tertiary-container": "#a68f6e",
+              "secondary-container": "#fedb9b",
+              "on-tertiary-fixed-variant": "#564429",
+              "primary": "#041534",
+              "inverse-on-surface": "#f2f0ed",
+              "surface-dim": "#dbdad7",
+              "inverse-surface": "#30312f",
+              "secondary": "#745a27",
+              "on-surface": "#1b1c1a",
+              "surface-container": "#efeeeb",
+              "primary-fixed-dim": "#b7c6ee",
+              "tertiary-fixed": "#fadeba",
+              "secondary-fixed": "#ffdea4",
+              "error-container": "#ffdad6",
+              "surface-tint": "#4f5e81",
+              "surface": "#fbf9f6",
+              "on-secondary-fixed": "#261900",
+              "on-secondary-fixed-variant": "#5a4312",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed-variant": "#384668",
+              "inverse-primary": "#b7c6ee"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "serif": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .bg-mesh-overlay {
+            background-image: radial-gradient(at 0% 0%, rgba(201, 169, 110, 0.05) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(27, 42, 74, 0.05) 0px, transparent 50%);
+        }
+        .woven-overlay {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBPB9VajXBHQJYf0gKJEzPFiUb-OLNVa5396rVdQkvg890dIOPsKbu0rxGo1vsCJMETkXiCsdArdknDssJuIusd-ApkF6WcMxuGRg5quYvKLkdcV16nGyqxOP_-Zt1l8uYwJtKAVtKKd0dvU_NuCLXNiHgjvbGCo2LBXQqjxAJJ-4bGBcIBUHEAWLyCMIrsgsQ_thVRNUhAXgtpaOCAaqme2dXnef1s5_pWWjkthE7tHvALL9QTjpTL0mAq0U2oRtrUCbFPEOdOmVFZ);
+            opacity: 0.03
+        }
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useMemo } = React;
+        const { createRoot } = ReactDOM;
+        const { MemoryRouter, Routes, Route, Link, useNavigate, useLocation } = ReactRouterDOM;
+
+        // --- Shared Components ---
+
+        const Header = ({ title = "Sebih Textile" }) => (
+            <header class="fixed top-0 w-full z-50 bg-[#fbf9f6]/80 backdrop-blur-md shadow-sm flex justify-between items-center px-6 py-4">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary text-2xl" data-icon="menu">menu</span>
+                    <h1 class="font-headline italic text-xl text-primary">{title}</h1>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="font-label tracking-widest uppercase text-xs text-secondary font-bold">TR</span>
+                    <span class="text-outline-variant">|</span>
+                    <span class="font-label tracking-widest uppercase text-xs text-primary opacity-50">EN</span>
+                </div>
+            </header>
+        );
+
+        const Footer = () => (
+            <footer class="w-full mt-24 bg-primary dark:bg-[#041534] flex flex-col items-center py-12 px-6 text-center gap-8 border-t border-secondary/20">
+                <h4 class="font-serif text-[#C9A96E] text-lg uppercase tracking-widest">Sebih Textile</h4>
+                <nav class="flex flex-wrap justify-center gap-6">
+                    <a class="font-sans text-sm tracking-wide text-white/60 hover:text-[#C9A96E] transition-colors" href="#">Privacy Policy</a>
+                    <a class="font-sans text-sm tracking-wide text-white/60 hover:text-[#C9A96E] transition-colors" href="#">Terms of Service</a>
+                    <a class="font-sans text-sm tracking-wide text-white/60 hover:text-[#C9A96E] transition-colors" href="#">Sustainability</a>
+                </nav>
+                <p class="font-sans text-sm tracking-wide leading-6 text-[#C9A96E] opacity-80">© 2024 Sebih Textile. All Rights Reserved.</p>
+            </footer>
+        );
+
+        const BottomNav = () => {
+            const location = useLocation();
+            const isActive = (path) => location.pathname === path;
+
+            return (
+                <nav class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-lg border-t border-outline-variant/30 px-6 py-3 flex justify-between items-center z-50">
+                    <Link to="/" class={`flex flex-col items-center gap-1 ${isActive('/') ? 'text-secondary font-bold' : 'text-primary opacity-50'}`}>
+                        <span class="material-symbols-outlined" style={{ fontVariationSettings: isActive('/') ? "'FILL' 1" : "'FILL' 0" }}>home</span>
+                        <span class="text-[10px] uppercase tracking-tighter">Ana Sayfa</span>
+                    </Link>
+                    <Link to="/katalog" class={`flex flex-col items-center gap-1 ${isActive('/katalog') ? 'text-secondary font-bold' : 'text-primary opacity-50'}`}>
+                        <span class="material-symbols-outlined" style={{ fontVariationSettings: isActive('/katalog') ? "'FILL' 1" : "'FILL' 0" }}>import_contacts</span>
+                        <span class="text-[10px] uppercase tracking-tighter">Katalog</span>
+                    </Link>
+                    <Link to="/hakkimizda" class={`flex flex-col items-center gap-1 ${isActive('/hakkimizda') ? 'text-secondary font-bold' : 'text-primary opacity-50'}`}>
+                        <span class="material-symbols-outlined" style={{ fontVariationSettings: isActive('/hakkimizda') ? "'FILL' 1" : "'FILL' 0" }}>info</span>
+                        <span class="text-[10px] uppercase tracking-tighter">Hakkımızda</span>
+                    </Link>
+                    <Link to="/iletisim" class={`flex flex-col items-center gap-1 ${isActive('/iletisim') ? 'text-secondary font-bold' : 'text-primary opacity-50'}`}>
+                        <span class="material-symbols-outlined" style={{ fontVariationSettings: isActive('/iletisim') ? "'FILL' 1" : "'FILL' 0" }}>mail</span>
+                        <span class="text-[10px] uppercase tracking-tighter">İletişim</span>
+                    </Link>
+                </nav>
+            );
+        };
+
+        const WhatsAppButton = () => (
+            <a class="fixed bottom-24 right-6 w-14 h-14 bg-[#25D366] rounded-full shadow-xl flex items-center justify-center text-white z-40 hover:scale-110 transition-transform" href="#">
+                <span class="material-symbols-outlined text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>chat</span>
+            </a>
+        );
+
+        // --- Page Components ---
+
+        const HomePage = () => {
+            const navigate = useNavigate();
+            return (
+                <div class="bg-background">
+                    <Header />
+                    <main class="pt-16 pb-24">
+                        <section class="relative h-[751px] w-full flex flex-col justify-end p-8 overflow-hidden">
+                            <div class="absolute inset-0 z-0">
+                                <img alt="Fabric texture" class="w-full h-full object-cover grayscale-[20%] brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZU9w9hKUnOSNgYTCuC_VBxLN7JwgBQD2xK3YPLx0DcvAW7cR1lAwxAFujbxpReu5mj7I8njF9Bf9CtSvbGaiis4qOLEFCKPeA77N8GXuhtqROUcX4eCU3TkL96Rb2aeOI9v14H-qiDwStlsi2bcWjfnXPj-uFWMOp9z9WLE6ySuHeImqKLzUQUkdKMECTI1RXg5TLGv-33npenlKwevScMDPKg9th2RIVB6Q5pof3t_al49JS4t8fTmLyrMYt4Q62jx0wuWtOJzkr"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-60"></div>
+                            </div>
+                            <div class="relative z-10 space-y-4">
+                                <p class="font-label uppercase tracking-[0.2em] text-secondary text-xs font-semibold">Zarafet ve Mukavemet</p>
+                                <h2 class="font-headline text-4xl text-white leading-tight">Kaliteli Kumaşlar,<br/>Güvenilir Ortaklık</h2>
+                                <button onClick={() => navigate('/katalog')} class="mt-6 bg-primary text-white px-8 py-4 rounded-md font-label uppercase tracking-wider text-xs flex items-center gap-3 w-fit border-b-2 border-secondary">
+                                    Kataloğu Görüntüle
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                                </button>
+                            </div>
+                        </section>
+
+                        <section class="bg-primary-container py-8 px-6 flex justify-around items-center gap-4 text-center">
+                            <div class="space-y-1">
+                                <span class="material-symbols-outlined text-secondary text-2xl block mb-1">history</span>
+                                <p class="font-headline text-2xl text-white font-bold">25+</p>
+                                <p class="font-label text-[10px] uppercase tracking-tighter text-on-primary-container">Yıl Deneyim</p>
+                            </div>
+                            <div class="h-10 w-[1px] bg-white/10"></div>
+                            <div class="space-y-1">
+                                <span class="material-symbols-outlined text-secondary text-2xl block mb-1">groups</span>
+                                <p class="font-headline text-2xl text-white font-bold">1000+</p>
+                                <p class="font-label text-[10px] uppercase tracking-tighter text-on-primary-container">Mutlu Müşteri</p>
+                            </div>
+                            <div class="h-10 w-[1px] bg-white/10"></div>
+                            <div class="space-y-1">
+                                <span class="material-symbols-outlined text-secondary text-2xl block mb-1">public</span>
+                                <p class="font-headline text-2xl text-white font-bold">40+</p>
+                                <p class="font-label text-[10px] uppercase tracking-tighter text-on-primary-container">Ülkeye İhracat</p>
+                            </div>
+                        </section>
+
+                        <section class="py-16 px-6 bg-surface">
+                            <div class="mb-12">
+                                <p class="font-label uppercase tracking-widest text-xs text-secondary mb-2">Koleksiyonlar</p>
+                                <h3 class="font-headline text-3xl text-primary">Öne Çıkan Kategoriler</h3>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="col-span-2 relative aspect-[16/9] rounded-lg overflow-hidden group">
+                                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsttSb0ZK6F2KlY-yb5BQwwozhrrBJmuraQncEi4Vz9QVpNxeRatLYVBuzmjPNYymaURIeXPpIpae3_aoVtxZughT-F7LbPzStJv_fgPxLtv2J7xvGMp5ZTXpyzwcagwe-qF4AEcrHOKXVv447UECHxRKhhMwL_J91H7kn21hRMBCjMwk1b5MhClPQRKy63i4vmyXtqHO-ngBQoSVueQqGhyCy9gnkPWoCuq4-b5mRRQlsNNSHfDCMW_UJ6e08rEQWV8lt3oUsQvYP"/>
+                                    <div class="absolute inset-0 bg-black/20"></div>
+                                    <div class="absolute bottom-4 left-4">
+                                        <span class="bg-white/90 backdrop-blur px-3 py-1 text-[10px] font-label uppercase tracking-widest mb-2 inline-block">Doğal</span>
+                                        <h4 class="text-white font-headline text-xl">Pamuklu</h4>
+                                    </div>
+                                </div>
+                                <div class="relative aspect-square rounded-lg overflow-hidden group">
+                                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzbJSZH5ep-Ji14CUYr4syHVe15MRpFnabiQ4wJPxbSbxoaabjp7JTEv1Vv8IT_ygykLH6lSjmEPFeNg5CEFbfed86C3UlERgk9ji_2nSg4kYxXhD29dOOaM37-2iUilY3ImQhraET4HxVNRoYV1YlxUSXW-9dMUJsYV-8US5wYz_jkS-Ad5HQv6iBHnVItjE95Y9fIdDk-R-7_z49iL0QEKJ4F2tZEr1CPvXSr9saAwP9tW4btzPwGFO995uFczvBS4Sp0QfH_j6H"/>
+                                    <div class="absolute inset-0 bg-black/20"></div>
+                                    <div class="absolute bottom-4 left-4"><h4 class="text-white font-headline text-lg">İpek</h4></div>
+                                </div>
+                                <div class="relative aspect-square rounded-lg overflow-hidden group">
+                                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcqqPg8TlqiX_EUNZGrywnNgTVzyXo1xyCiniOrLtO-Qd93jTMJKVwwzeq51AN8yZDcR3jefKB71-zYJgKqBH4IjaGEu3uuVCVes0ssVgBBBgrThRn-bzKcd8_QpRBLNGqgDrS19crI1dWTcu5-l-1yybN52NKGLSQubmvDyh-5A1nNnb6GeIDzpJMnjQzdi0CF1e59DdzD2_k6QSOjXKnDw3Fmv1_k-tMwNb_1cDcg5rRuqqywQFWKfGxfpnw3YqXwOOo6F6UvYms"/>
+                                    <div class="absolute inset-0 bg-black/20"></div>
+                                    <div class="absolute bottom-4 left-4"><h4 class="text-white font-headline text-lg">Keten</h4></div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="py-16 px-6 bg-surface-container-low">
+                            <div class="space-y-12">
+                                <div class="flex gap-6 items-start">
+                                    <div class="bg-white p-4 rounded-xl shadow-sm"><span class="material-symbols-outlined text-secondary text-3xl">verified</span></div>
+                                    <div>
+                                        <h4 class="font-headline text-xl text-primary mb-2">Kalite Garantisi</h4>
+                                        <p class="text-on-surface-variant text-sm leading-relaxed">Üretimin her aşamasında titiz kalite kontrol süreçleri uyguluyoruz.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-6 items-start">
+                                    <div class="bg-white p-4 rounded-xl shadow-sm"><span class="material-symbols-outlined text-secondary text-3xl">payments</span></div>
+                                    <div>
+                                        <h4 class="font-headline text-xl text-primary mb-2">Rekabetçi Fiyat</h4>
+                                        <p class="text-on-surface-variant text-sm leading-relaxed">Yüksek üretim kapasitemiz ile en iyi kaliteyi uygun maliyetle sunuyoruz.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="mx-6 my-16 bg-primary rounded-2xl p-10 text-center relative overflow-hidden">
+                            <div class="relative z-10">
+                                <h3 class="font-headline text-2xl text-white mb-4">Sipariş vermeye hazır mısınız?</h3>
+                                <div class="flex flex-col gap-3">
+                                    <a class="bg-[#25D366] text-white py-4 rounded-lg font-bold flex items-center justify-center gap-2" href="#"><span class="material-symbols-outlined">chat</span> WhatsApp ile Yazın</a>
+                                    <a class="text-white border border-white/20 py-4 rounded-lg font-medium flex items-center justify-center gap-2" href="tel:+902120000000"><span class="material-symbols-outlined">call</span> +90 212 000 00 00</a>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                    <Footer />
+                </div>
+            );
+        };
+
+        const AboutPage = () => (
+            <div class="bg-background">
+                <Header title="Hakkımızda" />
+                <main class="pt-16 pb-24">
+                    <section class="relative h-[353px] w-full overflow-hidden">
+                        <img alt="Facility" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv0L6YQtMXZhKSdt8uHKV8TPjv4sL3z7vKrxeLhdSiFJ-SxtXQ0409i9_J-CIK5WpkgXVFJcbwnh4Jbv6SMOa1TKrr06WVHJ-8TrfqVy4ukKNnBMKTQjqiVasu3IQ7oGJJipdN2fNeOqu4yXJ0lZOTirjNq6r89viLUbMTzQY0oktV5d50_MymsN0-9tPvcV9Tq0XjJwDKoXAG8xXaVfN7DAKMJPIs1Ta_nLl8GIQYJY-Fa1sytXnc9hDL1Jtpzyaer21psUm46RNU"/>
+                        <div class="absolute inset-0 bg-primary/40 flex items-center px-8">
+                            <h1 class="font-serif text-4xl text-white tracking-tight">Hakkımızda</h1>
+                        </div>
+                    </section>
+
+                    <section class="px-6 py-16 bg-surface-container-low bg-mesh-overlay">
+                        <div class="space-y-6">
+                            <span class="font-sans tracking-widest uppercase text-xs text-secondary font-semibold">Mirasımız</span>
+                            <h2 class="font-serif text-3xl text-primary leading-tight">Tekstilde Güven ve Zerafetin Hikayesi</h2>
+                            <p class="text-on-surface/80 leading-relaxed text-sm">Sebih Textile olarak, çeyrek asrı aşkın süredir tekstil dünyasında yenilikçi çözümler ve üstün kalite anlayışımızla varlık gösteriyoruz.</p>
+                        </div>
+                    </section>
+
+                    <section class="px-8 py-20 bg-surface">
+                        <div class="mb-12">
+                            <h3 class="font-serif text-2xl text-primary">Kilometre Taşlarımız</h3>
+                            <div class="h-1 w-12 bg-secondary mt-2"></div>
+                        </div>
+                        <div class="relative border-l-2 border-primary-container/20 ml-3 space-y-12 pb-4">
+                            <div class="relative pl-8">
+                                <div class="absolute -left-[11px] top-1 w-5 h-5 bg-secondary rounded-full border-4 border-surface shadow-sm"></div>
+                                <span class="font-serif text-xl font-bold text-primary">1998</span>
+                                <p class="text-sm text-on-surface-variant mt-1 font-medium">Kuruluş</p>
+                            </div>
+                            <div class="relative pl-8">
+                                <div class="absolute -left-[11px] top-1 w-5 h-5 bg-secondary rounded-full border-4 border-surface shadow-sm"></div>
+                                <span class="font-serif text-xl font-bold text-primary">2002</span>
+                                <p class="text-sm text-on-surface-variant mt-1 font-medium">İlk İhracat</p>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                <Footer />
+            </div>
+        );
+
+        const ContactPage = () => {
+            const [submitted, setSubmitted] = useState(false);
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                setSubmitted(true);
+                setTimeout(() => setSubmitted(false), 3000);
+            };
+
+            return (
+                <div class="bg-background">
+                    <Header title="İletişim" />
+                    <main class="pt-24 pb-24">
+                        <section class="px-6 mb-12">
+                            <span class="font-label text-secondary tracking-widest uppercase text-xs mb-2 block">Bize Ulaşın</span>
+                            <h2 class="font-headline text-4xl text-primary leading-tight mb-4">İletişim</h2>
+                        </section>
+
+                        <section class="px-6 grid grid-cols-1 gap-4 mb-16">
+                            <div class="bg-surface-container-low rounded-xl p-6 space-y-6">
+                                <div class="flex gap-4">
+                                    <span class="material-symbols-outlined text-secondary">call</span>
+                                    <div>
+                                        <p class="font-label text-[10px] uppercase tracking-widest text-outline">Telefon</p>
+                                        <p class="font-body font-medium">+90 212 555 00 00</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <span class="material-symbols-outlined text-secondary">location_on</span>
+                                    <div>
+                                        <p class="font-label text-[10px] uppercase tracking-widest text-outline">Merkez Ofis</p>
+                                        <p class="font-body font-medium leading-snug">Kağıthane, İstanbul</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="px-6 mb-16">
+                            <h3 class="font-headline text-2xl text-primary mb-6">Mesaj Bırakın</h3>
+                            <form onSubmit={handleSubmit} class="space-y-6">
+                                <div>
+                                    <label class="block font-label text-[10px] uppercase tracking-widest text-secondary mb-1">Adınız Soyadınız</label>
+                                    <input required class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-secondary transition-colors py-3 px-1 outline-none font-body" type="text" placeholder="Ad Soyad" />
+                                </div>
+                                <div>
+                                    <label class="block font-label text-[10px] uppercase tracking-widest text-secondary mb-1">E-Posta</label>
+                                    <input required class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-secondary transition-colors py-3 px-1 outline-none font-body" type="email" placeholder="Email" />
+                                </div>
+                                <div>
+                                    <label class="block font-label text-[10px] uppercase tracking-widest text-secondary mb-1">Mesajınız</label>
+                                    <textarea required class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-secondary transition-colors py-3 px-1 outline-none font-body resize-none" rows="4" placeholder="Nasıl yardımcı olabiliriz?"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-primary text-on-primary py-5 rounded-md font-label uppercase tracking-widest text-xs flex items-center justify-center gap-2 group hover:bg-primary-container transition-all">
+                                    {submitted ? 'Gönderildi' : 'Gönder'}
+                                    <span class="material-symbols-outlined text-sm">send</span>
+                                </button>
+                            </form>
+                        </section>
+                    </main>
+                    <Footer />
+                </div>
+            );
+        };
+
+        const CatalogPage = () => {
+            const fabrics = [
+                {
+                    id: 1,
+                    title: "Yüksek Kaliteli Pamuk",
+                    tag: "Yeni Sezon",
+                    type: "Saten Dokuma",
+                    comp: "%100 Pamuk",
+                    weight: "180 g/m²",
+                    price: "12.50",
+                    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC9KR-jiPAM6A0TS5wAGzXKzVxmcLSJT_pTbchCRn8qz6_3r5yCkXfzElU_Z37zanL8SoJednsnqMZ9VhmOeIkTxlITir7dMPi-Ijy6a3lbSM6-PnPYb-GTi72_IJC-MM3h5v6uKAx5tjL5Z8tJgjYtlF-jxoxBdVCqwIZsxTLuzZ_o6GORqy0R-DnolvtjLKK1DdpCyKUM4Yjs7lbGbB4MBevA3Fp0CQX9vQknXSl5lFbiiq0MNiJpWwZi6j97wzqmggWySlIkgFGd"
+                },
+                {
+                    id: 2,
+                    title: "Keten Karışımlı Premium",
+                    tag: "Yazlık",
+                    type: "Yazlık Koleksiyon",
+                    comp: "%60 Keten, %40 Pamuk",
+                    weight: "145 g/m²",
+                    price: "18.75",
+                    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBLKKK1jtyqT5BDNWOnorPj5-ixyR0AAHP73g3ixfR6E2pK4n7JxXYpDjvtigARbbVTA0Gd--86mdEhQAAcORRxEVuyJKzEv9BGaT7E8uX1sdADqxWEUBmOVymibq6zOEoSxnMt-OJ-UyjfBo9d22uHDcxIt2nUYPllv7A6hpVju1RG_WKZSnlso3zbOfw_7gnii_T1YqxDsEu6_Tk41I42dqBmwbHcnTH5Jt26KNstuDq1PU2pybuI00Oq1g3UARLFb8bgBvAblOsg"
+                },
+                {
+                    id: 3,
+                    title: "İpek Dokulu Saten",
+                    tag: "Premium",
+                    type: "Lüks Seri",
+                    comp: "%100 Viskon",
+                    weight: "110 g/m²",
+                    price: "14.20",
+                    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBuLOns3Hv5Jbj3XqERvm582EQ3kXlNaaUAgwbL3Gemv35VHRknDccqKjOQifcl2CfQTK3qJ14gHCtcod_eNse50FlKTI1ybU0N0N0KEula_ur6eFNtr71x9eToOhHJIQM1w9XJpgRIPdZ3cK75fFg2D5qSrYO8POeyjySY70fW4F05WAcxsX3t02kPXEKIg1Vv6FSPrhZudDsHn8a_RSrQTZ7iGKXRUWvgCbWwUOUvdpWoS7O-T11dX8mTgdSulEvTgkRxjPMoZWKf"
+                }
+            ];
+
+            return (
+                <div class="bg-background">
+                    <Header title="Katalog" />
+                    <main class="pt-20 pb-24">
+                        <section class="px-6 py-4 bg-surface-container-low flex items-center justify-between">
+                            <div class="text-sm font-medium text-on-surface-variant">124 kumaş bulundu</div>
+                            <div class="flex gap-2">
+                                <button class="flex items-center gap-1 px-3 py-1.5 bg-surface-container-lowest rounded-lg text-xs font-semibold text-primary border-b-2 border-transparent hover:border-secondary transition-all">
+                                    <span class="material-symbols-outlined text-sm">filter_list</span> Filtrele
+                                </button>
+                            </div>
+                        </section>
+
+                        <section class="px-6 py-8 flex flex-col gap-8">
+                            {fabrics.map(f => (
+                                <div key={f.id} class="bg-surface-container-lowest rounded-lg overflow-hidden flex flex-col group border-b border-secondary/10">
+                                    <div class="relative aspect-[4/3] w-full overflow-hidden">
+                                        <img alt={f.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src={f.img}/>
+                                        <div class="absolute top-4 left-4">
+                                            <span class="bg-surface-container-lowest/90 backdrop-blur px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-secondary flex items-center gap-1 rounded-full">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                                {f.tag}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="p-6 flex flex-col gap-4">
+                                        <div>
+                                            <h3 class="font-serif text-xl text-primary leading-tight">{f.title}</h3>
+                                            <p class="text-xs text-secondary font-semibold uppercase tracking-widest mt-1">{f.type}</p>
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-y-3">
+                                            <div class="flex flex-col"><span class="text-[10px] text-outline uppercase tracking-tighter">Bileşim</span><span class="text-sm font-medium">{f.comp}</span></div>
+                                            <div class="flex flex-col"><span class="text-[10px] text-outline uppercase tracking-tighter">Ağırlık</span><span class="text-sm font-medium">{f.weight}</span></div>
+                                        </div>
+                                        <div class="flex items-center justify-between pt-4 mt-2 border-t border-secondary/10">
+                                            <div class="flex flex-col">
+                                                <span class="text-xs text-outline italic">Metre fiyatı</span>
+                                                <span class="text-lg font-bold text-primary">€{f.price} <small class="text-sm font-normal">/m</small></span>
+                                            </div>
+                                            <button class="bg-primary text-on-primary px-6 py-2.5 rounded-md text-sm font-semibold hover:bg-primary-container transition-colors flex items-center gap-2 shadow-md">
+                                                <span class="material-symbols-outlined text-sm">send</span> Teklif Al
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </section>
+                    </main>
+                    <Footer />
+                </div>
+            );
+        };
+
+        // --- Main App Logic ---
+
+        const App = () => {
+            return (
+                <MemoryRouter>
+                    <div class="relative min-h-screen flex flex-col">
+                        <Routes>
+                            <Route path="/" element={<HomePage />} />
+                            <Route path="/hakkimizda" element={<AboutPage />} />
+                            <Route path="/iletisim" element={<ContactPage />} />
+                            <Route path="/katalog" element={<CatalogPage />} />
+                        </Routes>
+                        <WhatsAppButton />
+                        <BottomNav />
+                    </div>
+                </MemoryRouter>
+            );
+        };
+
+        const container = document.getElementById('root');
+        const root = createRoot(container);
+        root.render(<App />);
+    </script>
+</body>
+</html>
+
