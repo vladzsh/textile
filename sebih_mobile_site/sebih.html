@@ -307,11 +307,30 @@
         const useHideOnScroll = () => {
             const [hidden, setHidden] = useState(false);
             const lastScrollY = useRef(0);
+            const ticking = useRef(false);
+            const delta = useRef(0);
             useEffect(() => {
+                const THRESHOLD = 15;
                 const onScroll = () => {
-                    const y = window.scrollY;
-                    setHidden(y > 80 && y > lastScrollY.current);
-                    lastScrollY.current = y;
+                    if (ticking.current) return;
+                    ticking.current = true;
+                    requestAnimationFrame(() => {
+                        const y = Math.max(0, window.scrollY);
+                        const diff = y - lastScrollY.current;
+                        if (Math.abs(diff) > 3) delta.current += diff;
+                        if (y <= 80) {
+                            setHidden(false);
+                            delta.current = 0;
+                        } else if (delta.current > THRESHOLD) {
+                            setHidden(true);
+                            delta.current = 0;
+                        } else if (delta.current < -THRESHOLD) {
+                            setHidden(false);
+                            delta.current = 0;
+                        }
+                        lastScrollY.current = y;
+                        ticking.current = false;
+                    });
                 };
                 window.addEventListener('scroll', onScroll, { passive: true });
                 return () => window.removeEventListener('scroll', onScroll);
