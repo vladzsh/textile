@@ -2,7 +2,7 @@
 <html class="light" lang="tr">
 <head>
     <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
     <title>Sebih Textile - Premium Fabric Solutions</title>
 
     <!-- Fonts & Icons -->
@@ -96,7 +96,8 @@
         .woven-overlay {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.83 3.83-1.414 1.414L46.143 0h2.828zM11.03 0L7.2 3.83 8.613 5.244 13.857 0h-2.828zM43.314 0l6.83 6.83-1.415 1.413L40.486 0h2.828zM16.686 0L9.856 6.83l1.415 1.413L19.514 0h-2.828zM37.657 0l9.83 9.83-1.415 1.413L34.83 0h2.827zM22.343 0L12.513 9.83l1.415 1.413L25.17 0h-2.827zM32 0l12.83 12.83-1.415 1.413L29.172 0H32zM28 0L15.17 12.83l1.415 1.413L30.828 0H28z' fill='%23c9a96e' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
-        body { min-height: 100dvh; }
+        html, body { touch-action: manipulation; }
+        body { min-height: 100dvh; overscroll-behavior: none; }
         @keyframes fadeSlideIn {
             from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
