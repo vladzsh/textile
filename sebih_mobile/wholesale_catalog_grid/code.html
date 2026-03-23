@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-container": "#1b2a4a",
+                        "surface-dim": "#dbdad7",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#38280f",
+                        "surface": "#fbf9f6",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f2f0ed",
+                        "primary-fixed-dim": "#b7c6ee",
+                        "on-tertiary-fixed": "#271903",
+                        "tertiary": "#211401",
+                        "secondary-container": "#fedb9b",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#efeeeb",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#564429",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fbf9f6",
+                        "surface-variant": "#e4e2df",
+                        "on-secondary-fixed-variant": "#5a4312",
+                        "on-surface": "#1b1c1a",
+                        "on-background": "#1b1c1a",
+                        "surface-container-low": "#f5f3f0",
+                        "primary": "#041534",
+                        "surface-container-high": "#eae8e5",
+                        "secondary-fixed-dim": "#e4c285",
+                        "surface-tint": "#4f5e81",
+                        "secondary-fixed": "#ffdea4",
+                        "on-primary-fixed-variant": "#384668",
+                        "on-error": "#ffffff",
+                        "background": "#fbf9f6",
+                        "on-secondary-fixed": "#261900",
+                        "on-surface-variant": "#45464e",
+                        "tertiary-fixed": "#fadeba",
+                        "outline": "#75777f",
+                        "inverse-primary": "#b7c6ee",
+                        "primary-fixed": "#d9e2ff",
+                        "inverse-surface": "#30312f",
+                        "on-primary-container": "#8392b7",
+                        "tertiary-fixed-dim": "#ddc39f",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#a68f6e",
+                        "surface-container-highest": "#e4e2df",
+                        "on-secondary-container": "#795f2b",
+                        "on-primary-fixed": "#0a1a3a",
+                        "secondary": "#745a27",
+                        "outline-variant": "#c5c6cf"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .woven-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.83 3.83-1.414 1.414L46.143 0h2.828zM11.03 0L7.2 3.83 8.613 5.244 13.857 0h-2.828zM43.314 0l6.83 6.83-1.415 1.413L40.486 0h2.828zM16.686 0L9.856 6.83l1.415 1.413L19.514 0h-2.828zM37.657 0l9.83 9.83-1.415 1.413L34.83 0h2.827zM22.343 0L12.513 9.83l1.415 1.413L25.17 0h-2.827zM32 0l12.83 12.83-1.415 1.413L29.172 0H32zM28 0L15.17 12.83l1.415 1.413L30.828 0H28zM26.343 0L17.828 8.515l1.414 1.414L29.172 0h-2.829zM33.657 0L42.172 8.515l-1.414 1.414L30.828 0h2.829z' fill='%23c9a96e' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fbf9f6]/80 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#1B2A4A] cursor-pointer">menu</span>
+<h1 class="font-serif italic text-xl text-[#1B2A4A]">Sebih Textile</h1>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-sans tracking-widest uppercase text-xs text-[#1B2A4A] hover:text-[#C9A96E] transition-colors duration-300" href="#">Ana Sayfa</a>
+<a class="font-sans tracking-widest uppercase text-xs text-[#C9A96E] font-bold" href="#">Toptan Katalog</a>
+<a class="font-sans tracking-widest uppercase text-xs text-[#1B2A4A] hover:text-[#C9A96E] transition-colors duration-300" href="#">Kumaş Türleri</a>
+<a class="font-sans tracking-widest uppercase text-xs text-[#1B2A4A] hover:text-[#C9A96E] transition-colors duration-300" href="#">Teklif Al</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#1B2A4A]">search</span>
+<span class="font-sans tracking-widest uppercase text-xs text-[#1B2A4A] font-bold cursor-pointer">EN</span>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32">
+<!-- Hero Section -->
+<section class="px-6 py-12 md:py-20 max-w-7xl mx-auto relative overflow-hidden">
+<div class="flex flex-col md:flex-row gap-12 items-end">
+<div class="flex-1 z-10">
+<span class="font-sans tracking-[0.2em] uppercase text-xs text-secondary font-semibold mb-4 block">Premium Koleksiyon</span>
+<h2 class="font-headline text-5xl md:text-7xl text-primary leading-[1.1] mb-6">Toptan Kumaş<br/><span class="italic text-secondary">Kataloğu</span></h2>
+<p class="text-on-surface-variant max-w-lg leading-relaxed text-lg mb-8">
+                        Dünya standartlarında üretim kalitesiyle Gardenya, Poplin ve Döşemelik serilerimizi keşfedin. B2B iş ortaklarımıza özel fiyatlandırma ve esnek üretim kapasitesi.
+                    </p>
+</div>
+<div class="flex-1 w-full aspect-[4/3] bg-surface-container-low overflow-hidden rounded-lg shadow-sm relative">
+<img alt="Luxury fabric roll close up" class="w-full h-full object-cover grayscale-[20%] hover:scale-105 transition-transform duration-700" data-alt="Premium white linen fabric texture macro view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBalwHLGFNLzv5Pqx6aeDqZQSBQvVornpayptSOJjfzaQ06C-zqfIK3lUEPDWuO8NE6DQf7lQaf3_6HwjLDid4eguf0NPi6qOjqs8600Ovp2MXS6rFllPXjlZI7i4JmJLv9QTuAc53ulGMjPG_kK71sa2jbyh63ClmDU03997efkSeO1ORz8mo7DF9jOOpkZi0XjCV4usvaY4zVZyJ4US1N46_54ehnxsKwKIGq96y5xWzkH3Govw1DHDG_yDOuLD_LO4Uovze5ENZX"/>
+<div class="absolute inset-0 woven-overlay pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- Filters & Categories -->
+<section class="px-6 py-12 bg-surface-container-low border-y border-outline-variant/10">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col lg:flex-row gap-8 items-start lg:items-center justify-between">
+<div class="flex flex-wrap gap-4">
+<button class="px-6 py-2 bg-primary text-on-primary rounded-md text-sm font-medium transition-all hover:bg-primary-container">Tümü</button>
+<button class="px-6 py-2 bg-surface-container-lowest text-on-surface border border-outline-variant/30 rounded-md text-sm font-medium hover:border-secondary transition-all">Gardenya</button>
+<button class="px-6 py-2 bg-surface-container-lowest text-on-surface border border-outline-variant/30 rounded-md text-sm font-medium hover:border-secondary transition-all">Poplin</button>
+<button class="px-6 py-2 bg-surface-container-lowest text-on-surface border border-outline-variant/30 rounded-md text-sm font-medium hover:border-secondary transition-all">Döşemelik</button>
+</div>
+<div class="flex flex-wrap gap-6 items-center w-full lg:w-auto bg-surface-container-lowest p-4 rounded-lg shadow-sm">
+<div class="flex flex-col gap-1">
+<label class="text-[10px] uppercase tracking-widest text-secondary font-bold">Min. Sipariş (MOQ)</label>
+<select class="bg-transparent border-none p-0 text-sm focus:ring-0 cursor-pointer">
+<option>Tüm Miktarlar</option>
+<option>50m +</option>
+<option>200m +</option>
+<option>500m +</option>
+</select>
+</div>
+<div class="h-8 w-px bg-outline-variant/30 hidden sm:block"></div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] uppercase tracking-widest text-secondary font-bold">İskonto Oranı</label>
+<select class="bg-transparent border-none p-0 text-sm focus:ring-0 cursor-pointer">
+<option>Tüm İndirimler</option>
+<option>%10 - %20 Toplu</option>
+<option>%25+ Özel Proje</option>
+</select>
+</div>
+<button class="ml-auto bg-primary text-on-primary px-4 py-2 rounded flex items-center gap-2 text-xs uppercase tracking-widest font-bold">
+<span class="material-symbols-outlined text-sm">filter_list</span> Filtrele
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Grid -->
+<section class="px-6 py-20 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+<!-- Card 1: Gardenya -->
+<div class="group">
+<div class="relative aspect-[3/4] overflow-hidden rounded-lg mb-6">
+<img alt="Gardenya Fabric" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Soft cream gardenia fabric weave detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ1l11MV9h7z3-O2HCXTlqD5HpP75ot9_vR-RBQofjj3Mby6EGPcNiTVGPWIbrUKbTJYzrOiPIs_DRl1MIJ-IjgXsWsX-PPLyqVA_yv4URhF06bEOwteJWDHfAT6nB2t0mciu6tc1E1rQYMDBQul2rno-7pm7XcZ3LGDtQf0nU_6-nS0bB7DYfhO6BGFVAlEbWoBYpyn2uyqPdyDLPOYvQdt75XSrA5PP6Yht5jjReB_3vuh6X_ieaLHM9r0A4bXiCMZAWIKdWyBgv"/>
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="bg-surface/90 backdrop-blur-md px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-primary">Gardenya</span>
+<span class="bg-secondary text-on-tertiary px-3 py-1 text-[10px] uppercase tracking-widest font-bold">Stokta</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline text-2xl text-primary">Premium Gardenya V1</h3>
+<p class="text-sm text-on-surface-variant">%100 Pamuk, 140cm En</p>
+</div>
+<div class="text-right">
+<span class="block text-[10px] uppercase tracking-tighter text-secondary font-bold">Toptan Fiyat</span>
+<span class="text-xl font-bold text-primary">₺245.00 <small class="text-xs font-normal">/mt</small></span>
+</div>
+</div>
+<div class="flex items-center gap-2 py-3 border-y border-outline-variant/10">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-xs font-medium uppercase tracking-wide">MOQ: 50 Metre</span>
+</div>
+<button class="w-full bg-primary py-4 text-on-primary text-xs uppercase tracking-[0.2em] font-bold hover:bg-primary-container transition-colors rounded-md flex items-center justify-center gap-3 group-hover:shadow-lg">
+                            Teklif Al <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Poplin -->
+<div class="group">
+<div class="relative aspect-[3/4] overflow-hidden rounded-lg mb-6">
+<img alt="Poplin Fabric" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Crisp light blue poplin textile rolls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLVFFoZG8KH3V6nIYgkwM9i3rqnocOvsOI_MRYo0Qh3dnRycrdILdVrhuD4RFMe0QtpGCja0hQnZeRWGQN3dFPBwgqP4AvPzPepRp16Dm0Mc1lE-dDQSERMnZVMieVRhMtFJu_JAZCcbHjg2CULsdrcf--2s4-nLrXnm-657X39YID4q_Fj66AmK5OfRrNHSqedq9fnMateOIaz4B2L6ws3LuIyGTaE61sODhpoHhXE-a2iCcd1WoOrS0Qr6NDcsYEczAxya5eCdJ0"/>
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="bg-surface/90 backdrop-blur-md px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-primary">Poplin</span>
+<span class="bg-primary text-on-primary px-3 py-1 text-[10px] uppercase tracking-widest font-bold">%20 Toplu İskonto</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline text-2xl text-primary">İnce Dokuma Poplin</h3>
+<p class="text-sm text-on-surface-variant">Gömleklik, %100 Kombe Pamuk</p>
+</div>
+<div class="text-right">
+<span class="block text-[10px] uppercase tracking-tighter text-secondary font-bold">Toptan Fiyat</span>
+<span class="text-xl font-bold text-primary">₺185.00 <small class="text-xs font-normal">/mt</small></span>
+</div>
+</div>
+<div class="flex items-center gap-2 py-3 border-y border-outline-variant/10">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-xs font-medium uppercase tracking-wide">MOQ: 100 Metre</span>
+</div>
+<button class="w-full bg-primary py-4 text-on-primary text-xs uppercase tracking-[0.2em] font-bold hover:bg-primary-container transition-colors rounded-md flex items-center justify-center gap-3 group-hover:shadow-lg">
+                            Teklif Al <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Döşemelik -->
+<div class="group">
+<div class="relative aspect-[3/4] overflow-hidden rounded-lg mb-6">
+<img alt="Upholstery Fabric" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Heavy grey textured upholstery fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDThKa6u63izTr47gESM7NDQdOWsfagcPi-RMGEIkPAxp_UyEn8YOkMzzJGyRhZQlecHUfpTA5dc48ZVpNNig5h8Pr8gWMjJAz6Zp-QttbVSh24Kkz7E4OFnKxYeQRhBfCgjQs7grqOxYj0yotWooOMAKTDpNDPNpfYc0NbHGE90VAmwsoUOitCPti6vnr1JpC9UlXpEekx6bbxxdjGn8yWv98kh9PYp8f7eARqq3CjYvgelrtRGxPH27J_vfce59RM7EMG5NuNAoDY"/>
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="bg-surface/90 backdrop-blur-md px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-primary">Döşemelik</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline text-2xl text-primary">Şönil Döşemelik</h3>
+<p class="text-sm text-on-surface-variant">Yüksek Dayanımlı, Koltukluk</p>
+</div>
+<div class="text-right">
+<span class="block text-[10px] uppercase tracking-tighter text-secondary font-bold">Toptan Fiyat</span>
+<span class="text-xl font-bold text-primary">₺410.00 <small class="text-xs font-normal">/mt</small></span>
+</div>
+</div>
+<div class="flex items-center gap-2 py-3 border-y border-outline-variant/10">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-xs font-medium uppercase tracking-wide">MOQ: 20 Metre</span>
+</div>
+<button class="w-full bg-primary py-4 text-on-primary text-xs uppercase tracking-[0.2em] font-bold hover:bg-primary-container transition-colors rounded-md flex items-center justify-center gap-3 group-hover:shadow-lg">
+                            Teklif Al <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Wholesale CTA -->
+<section class="max-w-7xl mx-auto px-6 mt-12">
+<div class="bg-primary-container p-12 rounded-lg relative overflow-hidden flex flex-col items-center text-center">
+<div class="absolute inset-0 woven-overlay opacity-20 pointer-events-none"></div>
+<h3 class="font-headline text-3xl text-white mb-4">Özel Üretim Projeleriniz İçin</h3>
+<p class="text-on-primary-container max-w-2xl mb-8">Markanıza özel desen ve renk çalışmalarımızla koleksiyonunuzu güçlendirin. Minimum 500 metre üretim garantisiyle profesyonel çözüm ortağınızız.</p>
+<div class="flex flex-col sm:flex-row gap-4 w-full max-w-md">
+<input class="flex-1 bg-white/10 border-b-2 border-outline-variant/30 focus:border-secondary outline-none px-4 py-3 text-white placeholder:text-white/40" placeholder="E-posta adresiniz" type="email"/>
+<button class="bg-secondary text-on-tertiary px-8 py-3 font-bold uppercase tracking-widest text-xs hover:bg-secondary-container hover:text-on-secondary-container transition-all">İletişime Geç</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Inquiry Basket (Sticky Bottom) -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-2xl">
+<div class="bg-[#1B2A4A] backdrop-blur-lg border border-[#C9A96E]/20 p-4 rounded-xl shadow-2xl flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-secondary text-on-tertiary w-10 h-10 rounded-full flex items-center justify-center font-bold">3</div>
+<div>
+<p class="text-white text-sm font-bold uppercase tracking-wider">Teklif Sepetiniz</p>
+<p class="text-white/60 text-xs">Gardenya (100m), Poplin (250m)...</p>
+</div>
+</div>
+<button class="bg-secondary text-on-tertiary px-6 py-2 rounded-md font-bold text-xs uppercase tracking-widest hover:scale-105 transition-transform flex items-center gap-2">
+                Teklifi Tamamla <span class="material-symbols-outlined text-sm">request_quote</span>
+</button>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-[#1B2A4A] dark:bg-[#041534] w-full mt-24 flex flex-col items-center py-12 px-6 text-center gap-8 border-t border-[#C9A96E]/20">
+<h4 class="font-serif text-[#C9A96E] text-lg uppercase tracking-[0.3em]">Sebih Textile</h4>
+<nav class="flex flex-wrap justify-center gap-8">
+<a class="font-sans text-sm tracking-wide leading-6 text-white/60 hover:text-[#C9A96E] transition-colors" href="#">Privacy Policy</a>
+<a class="font-sans text-sm tracking-wide leading-6 text-white/60 hover:text-[#C9A96E] transition-colors" href="#">Terms of Service</a>
+<a class="font-sans text-sm tracking-wide leading-6 text-white/60 hover:text-[#C9A96E] transition-colors" href="#">Sustainability</a>
+<a class="font-sans text-sm tracking-wide leading-6 text-[#C9A96E] underline" href="#">Wholesale Terms</a>
+</nav>
+<p class="font-sans text-sm tracking-wide leading-6 text-white/60">© 2024 Sebih Textile. All Rights Reserved.</p>
+</footer>
+</body></html>

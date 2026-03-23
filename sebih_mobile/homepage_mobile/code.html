@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error-container": "#93000a",
+              "outline-variant": "#c5c6cf",
+              "primary-fixed": "#d9e2ff",
+              "on-tertiary-fixed": "#271903",
+              "on-tertiary": "#ffffff",
+              "tertiary": "#211401",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#8392b7",
+              "tertiary-container": "#38280f",
+              "on-primary-fixed": "#0a1a3a",
+              "primary-container": "#1b2a4a",
+              "error": "#ba1a1a",
+              "on-background": "#1b1c1a",
+              "surface-container-high": "#eae8e5",
+              "surface-container-low": "#f5f3f0",
+              "on-surface-variant": "#45464e",
+              "on-secondary-container": "#795f2b",
+              "surface-variant": "#e4e2df",
+              "background": "#fbf9f6",
+              "tertiary-fixed-dim": "#ddc39f",
+              "secondary-fixed-dim": "#e4c285",
+              "outline": "#75777f",
+              "surface-bright": "#fbf9f6",
+              "surface-container-highest": "#e4e2df",
+              "on-error": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-tertiary-container": "#a68f6e",
+              "secondary-container": "#fedb9b",
+              "on-tertiary-fixed-variant": "#564429",
+              "primary": "#041534",
+              "inverse-on-surface": "#f2f0ed",
+              "surface-dim": "#dbdad7",
+              "inverse-surface": "#30312f",
+              "secondary": "#745a27",
+              "on-surface": "#1b1c1a",
+              "surface-container": "#efeeeb",
+              "primary-fixed-dim": "#b7c6ee",
+              "tertiary-fixed": "#fadeba",
+              "secondary-fixed": "#ffdea4",
+              "error-container": "#ffdad6",
+              "surface-tint": "#4f5e81",
+              "surface": "#fbf9f6",
+              "on-secondary-fixed": "#261900",
+              "on-secondary-fixed-variant": "#5a4312",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed-variant": "#384668",
+              "inverse-primary": "#b7c6ee"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fbf9f6]/80 backdrop-blur-md shadow-sm flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="menu">menu</span>
+</div>
+<h1 class="font-headline italic text-xl text-primary">Sebih Textile</h1>
+<div class="flex items-center gap-2">
+<span class="font-label tracking-widest uppercase text-xs text-secondary font-bold">TR</span>
+<span class="text-outline-variant">|</span>
+<span class="font-label tracking-widest uppercase text-xs text-primary opacity-50">EN</span>
+</div>
+</header>
+<main class="pt-16 pb-24">
+<!-- Hero Section -->
+<section class="relative h-[751px] w-full flex flex-col justify-end p-8 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="High-end textile background" class="w-full h-full object-cover grayscale-[20%] brightness-75" data-alt="Close up of high quality woven fabric texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZU9w9hKUnOSNgYTCuC_VBxLN7JwgBQD2xK3YPLx0DcvAW7cR1lAwxAFujbxpReu5mj7I8njF9Bf9CtSvbGaiis4qOLEFCKPeA77N8GXuhtqROUcX4eCU3TkL96Rb2aeOI9v14H-qiDwStlsi2bcWjfnXPj-uFWMOp9z9WLE6ySuHeImqKLzUQUkdKMECTI1RXg5TLGv-33npenlKwevScMDPKg9th2RIVB6Q5pof3t_al49JS4t8fTmLyrMYt4Q62jx0wuWtOJzkr"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-60"></div>
+</div>
+<div class="relative z-10 space-y-4">
+<p class="font-label uppercase tracking-[0.2em] text-secondary text-xs font-semibold">Zarafet ve Mukavemet</p>
+<h2 class="font-headline text-4xl text-white leading-tight">Kaliteli Kumaşlar,<br/>Güvenilir Ortaklık</h2>
+<button class="mt-6 bg-primary text-white px-8 py-4 rounded-md font-label uppercase tracking-wider text-xs flex items-center gap-3 w-fit border-b-2 border-secondary">
+                    Kataloğu Görüntüle
+                    <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Trust Bar -->
+<section class="bg-primary-container py-8 px-6 flex justify-around items-center gap-4 text-center">
+<div class="space-y-1">
+<span class="material-symbols-outlined text-secondary text-2xl block mb-1" data-icon="history">history</span>
+<p class="font-headline text-2xl text-white font-bold">25+</p>
+<p class="font-label text-[10px] uppercase tracking-tighter text-on-primary-container">Yıl Deneyim</p>
+</div>
+<div class="h-10 w-[1px] bg-white/10"></div>
+<div class="space-y-1">
+<span class="material-symbols-outlined text-secondary text-2xl block mb-1" data-icon="groups">groups</span>
+<p class="font-headline text-2xl text-white font-bold">1000+</p>
+<p class="font-label text-[10px] uppercase tracking-tighter text-on-primary-container">Mutlu Müşteri</p>
+</div>
+<div class="h-10 w-[1px] bg-white/10"></div>
+<div class="space-y-1">
+<span class="material-symbols-outlined text-secondary text-2xl block mb-1" data-icon="public">public</span>
+<p class="font-headline text-2xl text-white font-bold">40+</p>
+<p class="font-label text-[10px] uppercase tracking-tighter text-on-primary-container">Ülkeye İhracat</p>
+</div>
+</section>
+<!-- Featured Categories (Bento Style) -->
+<section class="py-16 px-6 bg-surface">
+<div class="mb-12">
+<p class="font-label uppercase tracking-widest text-xs text-secondary mb-2">Koleksiyonlar</p>
+<h3 class="font-headline text-3xl text-primary">Öne Çıkan Kategoriler</h3>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Cotton - Large -->
+<div class="col-span-2 relative aspect-[16/9] rounded-lg overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Premium white cotton fabric rolls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsttSb0ZK6F2KlY-yb5BQwwozhrrBJmuraQncEi4Vz9QVpNxeRatLYVBuzmjPNYymaURIeXPpIpae3_aoVtxZughT-F7LbPzStJv_fgPxLtv2J7xvGMp5ZTXpyzwcagwe-qF4AEcrHOKXVv447UECHxRKhhMwL_J91H7kn21hRMBCjMwk1b5MhClPQRKy63i4vmyXtqHO-ngBQoSVueQqGhyCy9gnkPWoCuq4-b5mRRQlsNNSHfDCMW_UJ6e08rEQWV8lt3oUsQvYP"/>
+<div class="absolute inset-0 bg-black/20"></div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-white/90 backdrop-blur px-3 py-1 text-[10px] font-label uppercase tracking-widest mb-2 inline-block">Doğal</span>
+<h4 class="text-white font-headline text-xl">Pamuklu</h4>
+</div>
+</div>
+<!-- Silk -->
+<div class="relative aspect-square rounded-lg overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Lustrous silk fabric draping" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzbJSZH5ep-Ji14CUYr4syHVe15MRpFnabiQ4wJPxbSbxoaabjp7JTEv1Vv8IT_ygykLH6lSjmEPFeNg5CEFbfed86C3UlERgk9ji_2nSg4kYxXhD29dOOaM37-2iUilY3ImQhraET4HxVNRoYV1YlxUSXW-9dMUJsYV-8US5wYz_jkS-Ad5HQv6iBHnVItjE95Y9fIdDk-R-7_z49iL0QEKJ4F2tZEr1CPvXSr9saAwP9tW4btzPwGFO995uFczvBS4Sp0QfH_j6H"/>
+<div class="absolute inset-0 bg-black/20"></div>
+<div class="absolute bottom-4 left-4">
+<h4 class="text-white font-headline text-lg">İpek</h4>
+</div>
+</div>
+<!-- Linen -->
+<div class="relative aspect-square rounded-lg overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Textured linen fabric close up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcqqPg8TlqiX_EUNZGrywnNgTVzyXo1xyCiniOrLtO-Qd93jTMJKVwwzeq51AN8yZDcR3jefKB71-zYJgKqBH4IjaGEu3uuVCVes0ssVgBBBgrThRn-bzKcd8_QpRBLNGqgDrS19crI1dWTcu5-l-1yybN52NKGLSQubmvDyh-5A1nNnb6GeIDzpJMnjQzdi0CF1e59DdzD2_k6QSOjXKnDw3Fmv1_k-tMwNb_1cDcg5rRuqqywQFWKfGxfpnw3YqXwOOo6F6UvYms"/>
+<div class="absolute inset-0 bg-black/20"></div>
+<div class="absolute bottom-4 left-4">
+<h4 class="text-white font-headline text-lg">Keten</h4>
+</div>
+</div>
+<!-- Synthetic -->
+<div class="col-span-2 relative aspect-[21/9] rounded-lg overflow-hidden group mt-2">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Technical synthetic fibers pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC66Q1kNIynskTK1gmcV7rq8-0f44tml3mePma_j2iaZNmx-NKkU_HUNlbBEtvcIf1V33jBL7OBAKdcyTaY1DC55sty7dTSq_-LitLKOlkwukwr2dgdw-a55zADDIBbE3Sj8iut4bfTnbIzPSi500zPghGdxo3lYsz-DyaN37iBGEHrutOMYy6016EChJo1jmAQOWbh6q0-vnJIz1H3IrQk0tWhV4DZuSrBeqG7gWsu3u4UWpl6cQdV6dJFj5YHo0mm4GmlovHnagi3"/>
+<div class="absolute inset-0 bg-black/30"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<h4 class="text-white font-headline text-2xl tracking-widest uppercase">Sentetik Serisi</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-16 px-6 bg-surface-container-low">
+<div class="space-y-12">
+<div class="flex gap-6 items-start">
+<div class="bg-white p-4 rounded-xl shadow-sm">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="verified">verified</span>
+</div>
+<div>
+<h4 class="font-headline text-xl text-primary mb-2">Kalite Garantisi</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Üretimin her aşamasında titiz kalite kontrol süreçleri uyguluyoruz.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="bg-white p-4 rounded-xl shadow-sm">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="payments">payments</span>
+</div>
+<div>
+<h4 class="font-headline text-xl text-primary mb-2">Rekabetçi Fiyat</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Yüksek üretim kapasitemiz ile en iyi kaliteyi uygun maliyetle sunuyoruz.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="bg-white p-4 rounded-xl shadow-sm">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<div>
+<h4 class="font-headline text-xl text-primary mb-2">Hızlı Teslimat</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Küresel lojistik ağımız sayesinde siparişlerinizi zamanında ulaştırıyoruz.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- New Arrivals Carousel -->
+<section class="py-16 bg-surface">
+<div class="px-6 mb-8 flex justify-between items-end">
+<div>
+<p class="font-label uppercase tracking-widest text-xs text-secondary mb-2">Yeni Gelenler</p>
+<h3 class="font-headline text-3xl text-primary">Son Koleksiyon</h3>
+</div>
+<span class="material-symbols-outlined text-primary-container" data-icon="east">east</span>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-6 px-6 snap-x snap-mandatory">
+<!-- Product 1 -->
+<div class="min-w-[280px] snap-center bg-surface-container-lowest rounded-lg overflow-hidden group">
+<div class="aspect-[3/4] overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Minimalist white fabric shirt texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJJ7dTTsPuejtgCuGOb6ylJ4nOHW6WefARkDHsLkPTyzCmJnzcep-xl7hHg4IYynfH0BCgWLHGhdYzKkqRx26PK43mRG1pb4O_xwfVQqjk4t_hjvXUtAoYl_VO9WyLZnLz_KekvYvh-Ir4e51Y8fmlL3ogL3S3gaGJVagy77I7BDkD14QWjK-uMyWLka-mZ0Gz44G8BZtUszwEscLyIqD-rHywuRs9EwjMJawRbaXpHvOjv4IBkTXfWG5UYW_BNcty6aFMCuhAbn1h"/>
+<div class="absolute top-4 right-4 bg-secondary text-white text-[10px] px-2 py-1 font-bold uppercase tracking-widest">Yeni</div>
+</div>
+<div class="p-5">
+<p class="text-[10px] text-secondary font-bold uppercase tracking-widest mb-1">Poplin</p>
+<h5 class="font-headline text-lg text-primary mb-2">Luxury Cotton Poplin</h5>
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<p class="text-xs text-on-surface-variant">%100 Pamuk</p>
+</div>
+<p class="font-headline text-primary font-bold">12.50 € <span class="text-xs font-normal text-outline">/ m</span></p>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="min-w-[280px] snap-center bg-surface-container-lowest rounded-lg overflow-hidden group">
+<div class="aspect-[3/4] overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Dark navy formal suit fabric texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf-JRl-41J_HMkkdCXKW0mBzDbC3lQ45blaeSFBpuyV2GRWcdJXeZV4MrGDI2UGV3T0xJAYFkHQquvKcKlSrftYd905jjeeQ4j1JTJFB136b-GIcrZpQcAY832R2zblteBjUvVEpiVZvpZQ7LGmF9KzOsExjVIcrntD4HDU0tT8BNNW8mX0UUuO9ipajuCJ1e9wmRYcbtkBqw_hiVg9hq-USWdxXI_1u_Jwhwp__ginQorhABPCW9leFSVdj-uIqu9VoUQhumiebSV"/>
+</div>
+<div class="p-5">
+<p class="text-[10px] text-secondary font-bold uppercase tracking-widest mb-1">Yünlü</p>
+<h5 class="font-headline text-lg text-primary mb-2">Premium Worsted Wool</h5>
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<p class="text-xs text-on-surface-variant">%90 Yün, %10 İpek</p>
+</div>
+<p class="font-headline text-primary font-bold">45.00 € <span class="text-xs font-normal text-outline">/ m</span></p>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="min-w-[280px] snap-center bg-surface-container-lowest rounded-lg overflow-hidden group">
+<div class="aspect-[3/4] overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Natural linen fabric weave details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx8sjmg3ZBoeXvZfy5amT3nVTkNYZBAjlIHsKkKBtvA3sNciiUIAnrgheVmb9K3_dDrrDA-ijn-V_luv_myNK-zj-K4EcLjWSp2PaHQVXbqG-T1do6cErp91FHo-YXUoH0f6sn-EXUhp87oSVJ6voKdUIYehOieVgsdPMVZPxpGX4U9SkZywvrMTpySATmtQKuMG7sJLhQyg2Vdr5AkK09ao9jJrCdDz7ZsWNXn2JE6OPyteNO3_HRbGthM55QGlBVZvupPffV0e2q"/>
+</div>
+<div class="p-5">
+<p class="text-[10px] text-secondary font-bold uppercase tracking-widest mb-1">Keten</p>
+<h5 class="font-headline text-lg text-primary mb-2">Vintage Washed Linen</h5>
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<p class="text-xs text-on-surface-variant">%100 Keten</p>
+</div>
+<p class="font-headline text-primary font-bold">18.75 € <span class="text-xs font-normal text-outline">/ m</span></p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="mx-6 my-16 bg-primary rounded-2xl p-10 text-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuABED6tnuNFrN-bOvMs5Zpu-F93YVXcTYsQf3i9OtWTVIVR1-ZHMSNgssd35Dh3mbsg04qI-wqxMuHWIfBoavFaezECwaXh-W3UfsICY2Be4mfVRyvDxSUK1daGQKWD3xbYDUxdoxSTjQ5VrIuy16HQY4JmWvlQPLfj9ij_2VUpCewarKreqAMOom5QGjTooIiV4UZzu13OjXKQG3lR06Y9I2t1lhlAQXPrURLU0Cyc1ilpOATyKGMbuf0npwgBVyUoXTtAw-wruZE3');"></div>
+<div class="relative z-10">
+<h3 class="font-headline text-2xl text-white mb-4">Sipariş vermeye hazır mısınız?</h3>
+<p class="text-on-primary-container text-sm mb-8 leading-relaxed">Özel talepleriniz ve toplu alımlar için bizimle iletişime geçin.</p>
+<div class="flex flex-col gap-3">
+<a class="bg-[#25D366] text-white py-4 rounded-lg font-bold flex items-center justify-center gap-2" href="#">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                        WhatsApp ile Yazın
+                    </a>
+<a class="text-white border border-white/20 py-4 rounded-lg font-medium flex items-center justify-center gap-2" href="tel:+902120000000">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+                        +90 212 000 00 00
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-24 bg-primary dark:bg-[#041534] flex flex-col items-center py-12 px-6 text-center gap-8 border-t border-secondary/20">
+<h4 class="font-serif text-[#C9A96E] text-lg uppercase tracking-widest">Sebih Textile</h4>
+<nav class="flex flex-wrap justify-center gap-6">
+<a class="font-sans text-sm tracking-wide text-white/60 hover:text-[#C9A96E] transition-colors" href="#">Privacy Policy</a>
+<a class="font-sans text-sm tracking-wide text-white/60 hover:text-[#C9A96E] transition-colors" href="#">Terms of Service</a>
+<a class="font-sans text-sm tracking-wide text-white/60 hover:text-[#C9A96E] transition-colors" href="#">Sustainability</a>
+</nav>
+<p class="font-sans text-sm tracking-wide leading-6 text-[#C9A96E] opacity-80">© 2024 Sebih Textile. All Rights Reserved.</p>
+</footer>
+<!-- Bottom Navigation (Mobile Shell) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-lg border-t border-outline-variant/30 px-6 py-3 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 text-secondary font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] uppercase tracking-tighter">Ana Sayfa</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary opacity-50" href="#">
+<span class="material-symbols-outlined" data-icon="import_contacts">import_contacts</span>
+<span class="text-[10px] uppercase tracking-tighter">Katalog</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary opacity-50" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="text-[10px] uppercase tracking-tighter">Takip</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary opacity-50" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+<span class="text-[10px] uppercase tracking-tighter">İletişim</span>
+</a>
+</nav>
+<!-- Floating WhatsApp Button -->
+<a class="fixed bottom-24 right-6 w-14 h-14 bg-[#25D366] rounded-full shadow-xl flex items-center justify-center text-white z-40" href="#">
+<span class="material-symbols-outlined text-3xl" data-icon="chat" style="font-variation-settings: 'FILL' 1;">chat</span>
+</a>
+</body></html>
