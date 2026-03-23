@@ -203,14 +203,15 @@
             { days: "Pazar", hours: "Kapalı", dimmed: true },
         ];
 
+        const flagUrl = (cc) => `https://flagcdn.com/w40/${cc.toLowerCase()}.png`;
         const LANGUAGES = [
-            { code: "TR", flag: "🇹🇷", label: "Türkçe" },
-            { code: "EN", flag: "🇬🇧", label: "English" },
-            { code: "UK", flag: "🇺🇦", label: "Українська" },
-            { code: "KZ", flag: "🇰🇿", label: "Қазақша" },
-            { code: "RU", flag: "🇷🇺", label: "Русский" },
-            { code: "AZ", flag: "🇦🇿", label: "Azərbaycan" },
-            { code: "AR", flag: "🇸🇦", label: "العربية" },
+            { code: "TR", country: "tr", label: "Türkçe" },
+            { code: "EN", country: "gb", label: "English" },
+            { code: "UK", country: "ua", label: "Українська" },
+            { code: "KZ", country: "kz", label: "Қазақша" },
+            { code: "RU", country: "ru", label: "Русский" },
+            { code: "AZ", country: "az", label: "Azərbaycan" },
+            { code: "AR", country: "sa", label: "العربية" },
         ];
 
         // ============================================================
@@ -364,7 +365,7 @@
             return (
                 <div ref={ref} className="relative">
                     <button onClick={() => setOpen(!open)} className="flex items-center gap-1.5 px-2 py-1 rounded-md hover:bg-surface-container-low transition-colors">
-                        <span className="text-base leading-none">{current.flag}</span>
+                        <img src={flagUrl(current.country)} alt={current.code} className="w-5 h-3.5 object-cover rounded-[2px]" />
                         <span className="font-label tracking-widest uppercase text-xs text-primary font-bold">{current.code}</span>
                         <span className={`material-symbols-outlined text-sm text-outline transition-transform duration-200 ${open ? 'rotate-180' : ''}`}>expand_more</span>
                     </button>
@@ -376,7 +377,7 @@
                                     onClick={() => { setActiveLang(lang.code); setOpen(false); }}
                                     className={`w-full flex items-center gap-3 px-4 py-2.5 text-left hover:bg-surface-container-low transition-colors ${activeLang === lang.code ? 'bg-surface-container-low' : ''}`}
                                 >
-                                    <span className="text-base leading-none">{lang.flag}</span>
+                                    <img src={flagUrl(lang.country)} alt={lang.code} className="w-5 h-3.5 object-cover rounded-[2px]" />
                                     <span className="font-label text-xs uppercase tracking-widest text-primary">{lang.code}</span>
                                     <span className="text-xs text-on-surface-variant">{lang.label}</span>
                                     {activeLang === lang.code && <span className="material-symbols-outlined text-secondary text-sm ml-auto">check</span>}
