@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html class="light" lang="tr">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+    <title>Sebih Textile - Premium Fabric Solutions</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <!-- Scripts -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/history@5/umd/history.development.js"></script>
+    <script src="https://unpkg.com/react-router@6.3.0/umd/react-router.development.js"></script>
+    <script src="https://unpkg.com/react-router-dom@6.3.0/umd/react-router-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error-container": "#93000a",
+              "outline-variant": "#c5c6cf",
+              "primary-fixed": "#d9e2ff",
+              "on-tertiary-fixed": "#271903",
+              "on-tertiary": "#ffffff",
+              "tertiary": "#211401",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#8392b7",
+              "tertiary-container": "#38280f",
+              "on-primary-fixed": "#0a1a3a",
+              "primary-container": "#1b2a4a",
+              "error": "#ba1a1a",
+              "on-background": "#1b1c1a",
+              "surface-container-high": "#eae8e5",
+              "surface-container-low": "#f5f3f0",
+              "on-surface-variant": "#45464e",
+              "on-secondary-container": "#795f2b",
+              "surface-variant": "#e4e2df",
+              "background": "#fbf9f6",
+              "tertiary-fixed-dim": "#ddc39f",
+              "secondary-fixed-dim": "#e4c285",
+              "outline": "#75777f",
+              "surface-bright": "#fbf9f6",
+              "surface-container-highest": "#e4e2df",
+              "on-error": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-tertiary-container": "#a68f6e",
+              "secondary-container": "#fedb9b",
+              "on-tertiary-fixed-variant": "#564429",
+              "primary": "#041534",
+              "inverse-on-surface": "#f2f0ed",
+              "surface-dim": "#dbdad7",
+              "inverse-surface": "#30312f",
+              "secondary": "#745a27",
+              "on-surface": "#1b1c1a",
+              "surface-container": "#efeeeb",
+              "primary-fixed-dim": "#b7c6ee",
+              "tertiary-fixed": "#fadeba",
+              "secondary-fixed": "#ffdea4",
+              "error-container": "#ffdad6",
+              "surface-tint": "#4f5e81",
+              "surface": "#fbf9f6",
+              "on-secondary-fixed": "#261900",
+              "on-secondary-fixed-variant": "#5a4312",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed-variant": "#384668",
+              "inverse-primary": "#b7c6ee"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "serif": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .bg-mesh-overlay {
+            background-image: radial-gradient(at 0% 0%, rgba(201, 169, 110, 0.05) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(27, 42, 74, 0.05) 0px, transparent 50%);
+        }
+        .woven-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.83 3.83-1.414 1.414L46.143 0h2.828zM11.03 0L7.2 3.83 8.613 5.244 13.857 0h-2.828zM43.314 0l6.83 6.83-1.415 1.413L40.486 0h2.828zM16.686 0L9.856 6.83l1.415 1.413L19.514 0h-2.828zM37.657 0l9.83 9.83-1.415 1.413L34.83 0h2.827zM22.343 0L12.513 9.83l1.415 1.413L25.17 0h-2.827zM32 0l12.83 12.83-1.415 1.413L29.172 0H32zM28 0L15.17 12.83l1.415 1.413L30.828 0H28z' fill='%23c9a96e' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        body { min-height: 100dvh; }
+        @keyframes fadeSlideIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page-enter { animation: fadeSlideIn 0.4s ease-out; }
+        .reveal { opacity: 0; transform: translateY(16px); transition: all 0.7s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .bottom-nav-safe { padding-bottom: env(safe-area-inset-bottom, 0); }
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.4); opacity: 0; }
+        }
+        .pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useMemo, useRef, useCallback } = React;
+        const { createRoot } = ReactDOM;
+        const { HashRouter, Routes, Route, Link, useNavigate, useLocation } = ReactRouterDOM;
+
+        // ============================================================
+        // SECTION 1: CONSTANTS & DATA
+        // ============================================================
+
+        const WHATSAPP_NUMBER = "905305616304";
+        const COMPANY_PHONE = "+90 530 561 63 04";
+
+        const IMAGES = {
+            heroHome: "https://lh3.googleusercontent.com/aida-public/AB6AXuBZU9w9hKUnOSNgYTCuC_VBxLN7JwgBQD2xK3YPLx0DcvAW7cR1lAwxAFujbxpReu5mj7I8njF9Bf9CtSvbGaiis4qOLEFCKPeA77N8GXuhtqROUcX4eCU3TkL96Rb2aeOI9v14H-qiDwStlsi2bcWjfnXPj-uFWMOp9z9WLE6ySuHeImqKLzUQUkdKMECTI1RXg5TLGv-33npenlKwevScMDPKg9th2RIVB6Q5pof3t_al49JS4t8fTmLyrMYt4Q62jx0wuWtOJzkr",
+            catCotton: "https://lh3.googleusercontent.com/aida-public/AB6AXuAsttSb0ZK6F2KlY-yb5BQwwozhrrBJmuraQncEi4Vz9QVpNxeRatLYVBuzmjPNYymaURIeXPpIpae3_aoVtxZughT-F7LbPzStJv_fgPxLtv2J7xvGMp5ZTXpyzwcagwe-qF4AEcrHOKXVv447UECHxRKhhMwL_J91H7kn21hRMBCjMwk1b5MhClPQRKy63i4vmyXtqHO-ngBQoSVueQqGhyCy9gnkPWoCuq4-b5mRRQlsNNSHfDCMW_UJ6e08rEQWV8lt3oUsQvYP",
+            catSilk: "https://lh3.googleusercontent.com/aida-public/AB6AXuCzbJSZH5ep-Ji14CUYr4syHVe15MRpFnabiQ4wJPxbSbxoaabjp7JTEv1Vv8IT_ygykLH6lSjmEPFeNg5CEFbfed86C3UlERgk9ji_2nSg4kYxXhD29dOOaM37-2iUilY3ImQhraET4HxVNRoYV1YlxUSXW-9dMUJsYV-8US5wYz_jkS-Ad5HQv6iBHnVItjE95Y9fIdDk-R-7_z49iL0QEKJ4F2tZEr1CPvXSr9saAwP9tW4btzPwGFO995uFczvBS4Sp0QfH_j6H",
+            catLinen: "https://lh3.googleusercontent.com/aida-public/AB6AXuAcqqPg8TlqiX_EUNZGrywnNgTVzyXo1xyCiniOrLtO-Qd93jTMJKVwwzeq51AN8yZDcR3jefKB71-zYJgKqBH4IjaGEu3uuVCVes0ssVgBBBgrThRn-bzKcd8_QpRBLNGqgDrS19crI1dWTcu5-l-1yybN52NKGLSQubmvDyh-5A1nNnb6GeIDzpJMnjQzdi0CF1e59DdzD2_k6QSOjXKnDw3Fmv1_k-tMwNb_1cDcg5rRuqqywQFWKfGxfpnw3YqXwOOo6F6UvYms",
+            catSynthetic: "https://lh3.googleusercontent.com/aida-public/AB6AXuC66Q1kNIynskTK1gmcV7rq8-0f44tml3mePma_j2iaZNmx-NKkU_HUNlbBEtvcIf1V33jBL7OBAKdcyTaY1DC55sty7dTSq_-LitLKOlkwukwr2dgdw-a55zADDIBbE3Sj8iut4bfTnbIzPSi500zPghGdxo3lYsz-DyaN37iBGEHrutOMYy6016EChJo1jmAQOWbh6q0-vnJIz1H3IrQk0tWhV4DZuSrBeqG7gWsu3u4UWpl6cQdV6dJFj5YHo0mm4GmlovHnagi3",
+            prodPoplin: "https://lh3.googleusercontent.com/aida-public/AB6AXuDJJ7dTTsPuejtgCuGOb6ylJ4nOHW6WefARkDHsLkPTyzCmJnzcep-xl7hHg4IYynfH0BCgWLHGhdYzKkqRx26PK43mRG1pb4O_xwfVQqjk4t_hjvXUtAoYl_VO9WyLZnLz_KekvYvh-Ir4e51Y8fmlL3ogL3S3gaGJVagy77I7BDkD14QWjK-uMyWLka-mZ0Gz44G8BZtUszwEscLyIqD-rHywuRs9EwjMJawRbaXpHvOjv4IBkTXfWG5UYW_BNcty6aFMCuhAbn1h",
+            prodWool: "https://lh3.googleusercontent.com/aida-public/AB6AXuBf-JRl-41J_HMkkdCXKW0mBzDbC3lQ45blaeSFBpuyV2GRWcdJXeZV4MrGDI2UGV3T0xJAYFkHQquvKcKlSrftYd905jjeeQ4j1JTJFB136b-GIcrZpQcAY832R2zblteBjUvVEpiVZvpZQ7LGmF9KzOsExjVIcrntD4HDU0tT8BNNW8mX0UUuO9ipajuCJ1e9wmRYcbtkBqw_hiVg9hq-USWdxXI_1u_Jwhwp__ginQorhABPCW9leFSVdj-uIqu9VoUQhumiebSV",
+            prodLinen: "https://lh3.googleusercontent.com/aida-public/AB6AXuAx8sjmg3ZBoeXvZfy5amT3nVTkNYZBAjlIHsKkKBtvA3sNciiUIAnrgheVmb9K3_dDrrDA-ijn-V_luv_myNK-zj-K4EcLjWSp2PaHQVXbqG-T1do6cErp91FHo-YXUoH0f6sn-EXUhp87oSVJ6voKdUIYehOieVgsdPMVZPxpGX4U9SkZywvrMTpySATmtQKuMG7sJLhQyg2Vdr5AkK09ao9jJrCdDz7ZsWNXn2JE6OPyteNO3_HRbGthM55QGlBVZvupPffV0e2q",
+            prodGardenya: "https://lh3.googleusercontent.com/aida-public/AB6AXuCQ1l11MV9h7z3-O2HCXTlqD5HpP75ot9_vR-RBQofjj3Mby6EGPcNiTVGPWIbrUKbTJYzrOiPIs_DRl1MIJ-IjgXsWsX-PPLyqVA_yv4URhF06bEOwteJWDHfAT6nB2t0mciu6tc1E1rQYMDBQul2rno-7pm7XcZ3LGDtQf0nU_6-nS0bB7DYfhO6BGFVAlEbWoBYpyn2uyqPdyDLPOYvQdt75XSrA5PP6Yht5jjReB_3vuh6X_ieaLHM9r0A4bXiCMZAWIKdWyBgv",
+            prodPoplinBlue: "https://lh3.googleusercontent.com/aida-public/AB6AXuCLVFFoZG8KH3V6nIYgkwM9i3rqnocOvsOI_MRYo0Qh3dnRycrdILdVrhuD4RFMe0QtpGCja0hQnZeRWGQN3dFPBwgqP4AvPzPepRp16Dm0Mc1lE-dDQSERMnZVMieVRhMtFJu_JAZCcbHjg2CULsdrcf--2s4-nLrXnm-657X39YID4q_Fj66AmK5OfRrNHSqedq9fnMateOIaz4B2L6ws3LuIyGTaE61sODhpoHhXE-a2iCcd1WoOrS0Qr6NDcsYEczAxya5eCdJ0",
+            prodUpholstery: "https://lh3.googleusercontent.com/aida-public/AB6AXuDThKa6u63izTr47gESM7NDQdOWsfagcPi-RMGEIkPAxp_UyEn8YOkMzzJGyRhZQlecHUfpTA5dc48ZVpNNig5h8Pr8gWMjJAz6Zp-QttbVSh24Kkz7E4OFnKxYeQRhBfCgjQs7grqOxYj0yotWooOMAKTDpNDPNpfYc0NbHGE90VAmwsoUOitCPti6vnr1JpC9UlXpEekx6bbxxdjGn8yWv98kh9PYp8f7eARqq3CjYvgelrtRGxPH27J_vfce59RM7EMG5NuNAoDY",
+            heroAbout: "https://lh3.googleusercontent.com/aida-public/AB6AXuBv0L6YQtMXZhKSdt8uHKV8TPjv4sL3z7vKrxeLhdSiFJ-SxtXQ0409i9_J-CIK5WpkgXVFJcbwnh4Jbv6SMOa1TKrr06WVHJ-8TrfqVy4ukKNnBMKTQjqiVasu3IQ7oGJJipdN2fNeOqu4yXJ0lZOTirjNq6r89viLUbMTzQY0oktV5d50_MymsN0-9tPvcV9Tq0XjJwDKoXAG8xXaVfN7DAKMJPIs1Ta_nLl8GIQYJY-Fa1sytXnc9hDL1Jtpzyaer21psUm46RNU",
+            factory: "https://lh3.googleusercontent.com/aida-public/AB6AXuBFBpmqrSPowzlcHxxeCzcfKkIvvNEqz56Bm8HBcAR0CV_aElWafHxcyxr-nZJYuKPfCAHmG-o0-1_0CdgAFW8g6iV_hs8xONzIzV1XWu99T7cs1wI77u5zVz87824q6QmIrNq-CUO2OayupVnANcfosCTlAlIv45IDnssNEstp8JO_eGRnCruy4k3AnjE6ABeMSutiZSEB1cimfOhiyz6DdYdEOoPoB8pOWyQ1QrfQYznrsslfgBDLxjWLJlExEjo6EzOhpf3mYDT9",
+            certOeko: "https://lh3.googleusercontent.com/aida-public/AB6AXuCxD8n_-7GGoaDuALt7SqnUJpg3ij_MsPZt757G1s2NcCwM-XVNaeZb3WoVRsN_0JyXxF_QDKnYwJXokiG9yRAcimDYqVSKJGLMTtpDZM4F2wYlK0d8r8ODwwtnQ0gPF1xtfQzEYR3VQWddV4bCO9tTUstJJH94AeHS5RJ8L1xgytooy7sXBdF4U0dHPd3o0dizZTCInCfvqzchNA-fJ0ORhqpyKhoIQe8wm0wVybOa4yFVOWLZM3NLw4SX2U7SxmKE8lwkzaIsjIB5",
+            certISO: "https://lh3.googleusercontent.com/aida-public/AB6AXuCzn1t97fL9Ze8JMYny4VNj4DlH3XkpJeNeqc15Xr9nvfG9Whe6ntYGqhkzu_RZk_SEFe9QhIL-AgU7Wpvk1bByQ0r0rHM1UxevkQAtMjuRv7JzJQyl4I7ALesnDQAdRlTG0E8m5LRdnyWixiSVdhY2c42uGPD48qLU8LK-BNBN0udk-Y9dtwVWu3nHdkkqU0yUJp7U8TFtpxvo8jU6UjsGrwSawyPcwMDg6EIV9TTq_GpaOFoUNrKDJYquAJCAYt8RK0cIz6xBF-RM",
+            certGOTS: "https://lh3.googleusercontent.com/aida-public/AB6AXuBQOglKxz4PQLwdzv1fmDsRGnc0pQOoCQ2HR4CMkvBf4CzaN6KT_eozqJTwbkdCdCMLUvfRXEeTRJwvgH66xLek2IxM_p26V4eeCmMRg6ugI9wf2OWKmhSmUGZYSLB_eAmt7QZfWpl2LpPr61suNtO0OoorZ3Eo8Mo8Gl6GbevLMsV9rc4a8223eBu2MbbAWaD3azhN9clB6Z7rgjxSULi1aOlF0ap1DAx0foEbdJpRjgncJIo9ukQtYKQeYRaSaQQ6-ScXxVF2tqQS",
+            heroFabric: "https://lh3.googleusercontent.com/aida-public/AB6AXuBalwHLGFNLzv5Pqx6aeDqZQSBQvVornpayptSOJjfzaQ06C-zqfIK3lUEPDWuO8NE6DQf7lQaf3_6HwjLDid4eguf0NPi6qOjqs8600Ovp2MXS6rFllPXjlZI7i4JmJLv9QTuAc53ulGMjPG_kK71sa2jbyh63ClmDU03997efkSeO1ORz8mo7DF9jOOpkZi0XjCV4usvaY4zVZyJ4US1N46_54ehnxsKwKIGq96y5xWzkH3Govw1DHDG_yDOuLD_LO4Uovze5ENZX",
+            map: "https://lh3.googleusercontent.com/aida-public/AB6AXuC5WVhJPMz4o01PQnGvGv_In6uEHLLX2HCovCg_bUH3bSGjyy9cVI9S6jPzCjxN_EagC8u3a4Cze3RhMvL98WUJNz_sgKWD6GKvDh3-Z3XNCXYvvifbw5kEIhS9PWRHpGtP1RKkJ6GJ8I1kBRpI-5AmbX7MQJoOGa3JdyyA65Eg1262E4_rug1QSsjplkz9nI5pmSdB_S7vKm9VBkGAqjbqnzxkyFru4gNxfg5BCpsQPVuaOOWXhGbQdK2P1dxHwWXTN6FEWNr2p3Eq",
+        };
+
+        const PRODUCTS = [
+            { id: 1, name: "Premium Gardenya V1", category: "gardenya", type: "Gardenya", composition: "%100 Pamuk", weight: "180 g/m²", width: "140 cm", color: "Krem", pricePerMeter: 245, moq: 50, stockStatus: "stokta", tag: "Stokta", img: IMAGES.prodGardenya },
+            { id: 2, name: "İnce Dokuma Poplin", category: "poplin", type: "Poplin", composition: "%100 Kombe Pamuk", weight: "120 g/m²", width: "150 cm", color: "Beyaz", pricePerMeter: 185, moq: 100, stockStatus: "stokta", tag: "%20 İskonto", img: IMAGES.prodPoplinBlue },
+            { id: 3, name: "Şönil Döşemelik", category: "dosemelik", type: "Döşemelik", composition: "%70 Polyester %30 Pamuk", weight: "350 g/m²", width: "280 cm", color: "Antrasit", pricePerMeter: 410, moq: 20, stockStatus: "stokta", tag: null, img: IMAGES.prodUpholstery },
+            { id: 4, name: "Luxury Cotton Poplin", category: "poplin", type: "Poplin", composition: "%100 Pamuk", weight: "130 g/m²", width: "150 cm", color: "Açık Mavi", pricePerMeter: 195, moq: 50, stockStatus: "stokta", tag: "Yeni", img: IMAGES.prodPoplin },
+            { id: 5, name: "Premium Worsted Wool", category: "yunlu", type: "Yünlü", composition: "%90 Yün %10 İpek", weight: "280 g/m²", width: "150 cm", color: "Lacivert", pricePerMeter: 520, moq: 30, stockStatus: "stokta", tag: "Premium", img: IMAGES.prodWool },
+            { id: 6, name: "Vintage Washed Linen", category: "keten", type: "Keten", composition: "%100 Keten", weight: "160 g/m²", width: "140 cm", color: "Natural", pricePerMeter: 310, moq: 50, stockStatus: "stokta", tag: null, img: IMAGES.prodLinen },
+            { id: 7, name: "İpek Dokulu Saten", category: "ipek", type: "İpek / Saten", composition: "%100 Viskon", weight: "110 g/m²", width: "140 cm", color: "Şampanya", pricePerMeter: 275, moq: 40, stockStatus: "sinirli", tag: "Sınırlı Stok", img: IMAGES.catSilk },
+            { id: 8, name: "Gardenya Jacquard", category: "gardenya", type: "Gardenya", composition: "%80 Pamuk %20 Polyester", weight: "210 g/m²", width: "140 cm", color: "Bej", pricePerMeter: 290, moq: 100, stockStatus: "stokta", tag: "Özel Proje", img: IMAGES.catCotton },
+            { id: 9, name: "Pamuklu Gabardin", category: "gardenya", type: "Gardenya", composition: "%100 Pamuk", weight: "240 g/m²", width: "150 cm", color: "Haki", pricePerMeter: 205, moq: 200, stockStatus: "stokta", tag: "%15 İskonto", img: IMAGES.heroFabric },
+            { id: 10, name: "Kadife Döşemelik", category: "dosemelik", type: "Döşemelik", composition: "%100 Polyester", weight: "400 g/m²", width: "280 cm", color: "Bordo", pricePerMeter: 385, moq: 30, stockStatus: "stokta", tag: null, img: IMAGES.catSynthetic },
+            { id: 11, name: "Mikro Saten", category: "ipek", type: "İpek / Saten", composition: "%100 Polyester", weight: "95 g/m²", width: "150 cm", color: "Siyah", pricePerMeter: 145, moq: 100, stockStatus: "stokta", tag: null, img: IMAGES.prodWool },
+            { id: 12, name: "Organik Keten Karışım", category: "keten", type: "Keten", composition: "%60 Keten %40 Pamuk", weight: "145 g/m²", width: "140 cm", color: "Açık Gri", pricePerMeter: 340, moq: 50, stockStatus: "stokta", tag: "GOTS Sertifikalı", img: IMAGES.prodLinen },
+        ];
+
+        const CATEGORIES = [
+            { key: "all", label: "Tümü" },
+            { key: "gardenya", label: "Gardenya" },
+            { key: "poplin", label: "Poplin" },
+            { key: "dosemelik", label: "Döşemelik" },
+            { key: "keten", label: "Keten" },
+            { key: "ipek", label: "İpek / Saten" },
+            { key: "yunlu", label: "Yünlü" },
+        ];
+
+        const SORT_OPTIONS = [
+            { value: "default", label: "Varsayılan" },
+            { value: "price-asc", label: "Fiyat ↑" },
+            { value: "price-desc", label: "Fiyat ↓" },
+            { value: "name", label: "İsim (A-Z)" },
+        ];
+
+        const MILESTONES = [
+            { year: "1998", title: "Kuruluş", desc: "İstanbul'da ilk üretim tesisimizin temelleri atıldı." },
+            { year: "2002", title: "İlk İhracat", desc: "Avrupa pazarına ilk sevkiyatımızı başarıyla gerçekleştirdik." },
+            { year: "2010", title: "ISO Sertifikasyonu", desc: "Kalite yönetim sistemlerimizi uluslararası standartlara taşıdık." },
+            { year: "2018", title: "Kapasite Artışı", desc: "Üretim parkurumuzu %40 oranında genişleterek modernizasyon sağladık." },
+        ];
+
+        const ADVANTAGES = [
+            { icon: "verified", label: "Kalite Kontrol" },
+            { icon: "inventory_2", label: "Geniş Ürün Gamı" },
+            { icon: "edit_note", label: "Özel Sipariş" },
+            { icon: "local_shipping", label: "Hızlı Lojistik" },
+            { icon: "sell", label: "Rekabetçi Fiyat" },
+            { icon: "translate", label: "Çok Dilli Destek" },
+        ];
+
+        const WORKING_HOURS = [
+            { days: "Pazartesi - Cuma", hours: "09:00 - 18:30" },
+            { days: "Cumartesi", hours: "09:00 - 13:00" },
+            { days: "Pazar", hours: "Kapalı", dimmed: true },
+        ];
+
+        // ============================================================
+        // SECTION 2: UTILITY HOOKS & HELPERS
+        // ============================================================
+
+        const ScrollToTop = () => {
+            const { pathname } = useLocation();
+            useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+            return null;
+        };
+
+        const useRevealOnScroll = (threshold = 0.15) => {
+            const ref = useRef(null);
+            const [isVisible, setIsVisible] = useState(false);
+            useEffect(() => {
+                const el = ref.current;
+                if (!el) return;
+                const observer = new IntersectionObserver(
+                    ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.disconnect(); } },
+                    { threshold }
+                );
+                observer.observe(el);
+                return () => observer.disconnect();
+            }, []);
+            return [ref, isVisible];
+        };
+
+        const AnimatedCounter = ({ target, suffix = "" }) => {
+            const [ref, isVisible] = useRevealOnScroll(0.3);
+            const [count, setCount] = useState(0);
+            useEffect(() => {
+                if (!isVisible) return;
+                const duration = 1500;
+                const steps = 30;
+                const increment = target / steps;
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) { setCount(target); clearInterval(timer); }
+                    else setCount(Math.floor(current));
+                }, duration / steps);
+                return () => clearInterval(timer);
+            }, [isVisible, target]);
+            return <span ref={ref}>{count}{suffix}</span>;
+        };
+
+        const buildWhatsAppUrl = (message) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+        const buildBasketWhatsAppUrl = (basketIds) => {
+            const items = basketIds.map(id => {
+                const p = PRODUCTS.find(pr => pr.id === id);
+                return `- ${p.name} (${p.type}, ${p.moq}m+)`;
+            }).join('\n');
+            return buildWhatsAppUrl(`Merhaba, aşağıdaki ürünler için teklif almak istiyorum:\n${items}\n\nLütfen fiyat ve teslimat bilgisi paylaşınız.`);
+        };
+
+        const buildProductWhatsAppUrl = (product) => {
+            return buildWhatsAppUrl(`Merhaba, "${product.name}" (${product.type}, ${product.composition}) ürün için teklif almak istiyorum.`);
+        };
+
+        // ============================================================
+        // SECTION 3: SHARED UI COMPONENTS
+        // ============================================================
+
+        const MobileMenu = ({ isOpen, onClose }) => {
+            const navigate = useNavigate();
+            const go = (path) => { navigate(path); onClose(); };
+            return (
+                <React.Fragment>
+                    {/* Backdrop */}
+                    <div onClick={onClose} className={`fixed inset-0 bg-black/40 z-[60] transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} />
+                    {/* Drawer */}
+                    <div className={`fixed top-0 left-0 h-full w-72 bg-surface z-[70] shadow-2xl transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+                        <div className="p-6 flex justify-between items-center border-b border-outline-variant/20">
+                            <h2 className="font-headline italic text-xl text-primary">Sebih Textile</h2>
+                            <button onClick={onClose}><span className="material-symbols-outlined text-primary text-2xl">close</span></button>
+                        </div>
+                        <nav className="p-6 space-y-2">
+                            {[
+                                { path: "/", icon: "home", label: "Ana Sayfa" },
+                                { path: "/katalog", icon: "import_contacts", label: "Katalog" },
+                                { path: "/hakkimizda", icon: "info", label: "Hakkımızda" },
+                                { path: "/iletisim", icon: "mail", label: "İletişim" },
+                            ].map(item => (
+                                <button key={item.path} onClick={() => go(item.path)} className="w-full flex items-center gap-4 px-4 py-3 rounded-lg text-left hover:bg-surface-container-low transition-colors">
+                                    <span className="material-symbols-outlined text-secondary">{item.icon}</span>
+                                    <span className="font-label text-sm uppercase tracking-widest text-primary">{item.label}</span>
+                                </button>
+                            ))}
+                        </nav>
+                        <div className="absolute bottom-0 left-0 w-full p-6 border-t border-outline-variant/20">
+                            <a href={buildWhatsAppUrl("Merhaba, Sebih Textile hakkında bilgi almak istiyorum.")} target="_blank" rel="noopener" className="flex items-center gap-3 bg-[#25D366] text-white px-4 py-3 rounded-lg font-bold text-sm justify-center">
+                                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>chat</span>
+                                WhatsApp ile Yazın
+                            </a>
+                            <p className="text-center text-[10px] text-outline mt-4 tracking-widest uppercase">{COMPANY_PHONE}</p>
+                        </div>
+                    </div>
+                </React.Fragment>
+            );
+        };
+
+        const Header = ({ menuOpen, setMenuOpen }) => (
+            <header className="fixed top-0 w-full z-50 bg-[#fbf9f6]/80 backdrop-blur-md shadow-sm flex justify-between items-center px-6 py-4">
+                <div className="flex items-center gap-3">
+                    <button onClick={() => setMenuOpen(true)}><span className="material-symbols-outlined text-primary text-2xl">menu</span></button>
+                    <h1 className="font-headline italic text-xl text-primary">Sebih Textile</h1>
+                </div>
+                <div className="flex items-center gap-2">
+                    <span className="font-label tracking-widest uppercase text-xs text-secondary font-bold">TR</span>
+                    <span className="text-outline-variant">|</span>
+                    <span className="font-label tracking-widest uppercase text-xs text-primary opacity-50">EN</span>
+                </div>
+            </header>
+        );
+
+        const Footer = () => (
+            <footer className="w-full mt-24 bg-primary flex flex-col items-center py-12 px-6 text-center gap-8 border-t border-secondary/20">
+                <h4 className="font-serif text-[#C9A96E] text-lg uppercase tracking-widest">Sebih Textile</h4>
+                <nav className="flex flex-wrap justify-center gap-6">
+                    <a className="font-sans text-sm tracking-wide text-white/60 hover:text-[#C9A96E] transition-colors" href="#">Gizlilik Politikası</a>
+                    <a className="font-sans text-sm tracking-wide text-white/60 hover:text-[#C9A96E] transition-colors" href="#">Kullanım Şartları</a>
+                    <a className="font-sans text-sm tracking-wide text-white/60 hover:text-[#C9A96E] transition-colors" href="#">Sürdürülebilirlik</a>
+                </nav>
+                <p className="font-sans text-sm tracking-wide leading-6 text-[#C9A96E] opacity-80">© 2025 Sebih Textile. Tüm hakları saklıdır.</p>
+            </footer>
+        );
+
+        const BottomNav = () => {
+            const location = useLocation();
+            const isActive = (path) => location.pathname === path;
+            const navItems = [
+                { path: "/", icon: "home", label: "Ana Sayfa" },
+                { path: "/katalog", icon: "import_contacts", label: "Katalog" },
+                { path: "/hakkimizda", icon: "info", label: "Hakkımızda" },
+                { path: "/iletisim", icon: "mail", label: "İletişim" },
+            ];
+            return (
+                <nav className="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-lg shadow-[0_-2px_10px_rgba(0,0,0,0.05)] px-6 py-3 flex justify-between items-center z-50 bottom-nav-safe">
+                    {navItems.map(item => (
+                        <Link key={item.path} to={item.path} className={`flex flex-col items-center gap-1 ${isActive(item.path) ? 'text-secondary font-bold' : 'text-primary opacity-50'}`}>
+                            <span className="material-symbols-outlined" style={{ fontVariationSettings: isActive(item.path) ? "'FILL' 1" : "'FILL' 0" }}>{item.icon}</span>
+                            <span className="text-[10px] uppercase tracking-tighter">{item.label}</span>
+                        </Link>
+                    ))}
+                </nav>
+            );
+        };
+
+        const WhatsAppButton = () => (
+            <a className="fixed bottom-24 right-6 w-14 h-14 bg-[#25D366] rounded-full shadow-xl flex items-center justify-center text-white z-40 hover:scale-110 transition-transform" href={buildWhatsAppUrl("Merhaba, Sebih Textile hakkında bilgi almak istiyorum.")} target="_blank" rel="noopener">
+                <span className="material-symbols-outlined text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>chat</span>
+            </a>
+        );
+
+        const PageHero = ({ title, imageSrc }) => (
+            <section className="relative h-[353px] w-full overflow-hidden">
+                <img alt={title} className="w-full h-full object-cover" loading="eager" src={imageSrc}/>
+                <div className="absolute inset-0 bg-primary/40 flex items-center px-8">
+                    <h1 className="font-serif text-4xl text-white tracking-tight">{title}</h1>
+                </div>
+            </section>
+        );
+
+        const SectionLabel = ({ label, title }) => (
+            <div className="mb-12">
+                <p className="font-label uppercase tracking-widest text-xs text-secondary mb-2">{label}</p>
+                <h3 className="font-headline text-3xl text-primary">{title}</h3>
+            </div>
+        );
+
+        // ============================================================
+        // SECTION 4: PAGE — HOME
+        // ============================================================
+
+        const HomePage = () => {
+            const navigate = useNavigate();
+            return (
+                <div className="page-enter bg-background">
+                    <main className="pt-16 pb-24">
+                        {/* Hero */}
+                        <section className="relative w-full flex flex-col justify-end p-8 overflow-hidden" style={{ height: 'calc(100dvh - 16rem)' }}>
+                            <div className="absolute inset-0 z-0">
+                                <img alt="Fabric texture" className="w-full h-full object-cover grayscale-[20%] brightness-75" src={IMAGES.heroHome}/>
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-60"></div>
+                            </div>
+                            <div className="relative z-10 space-y-4">
+                                <p className="font-label uppercase tracking-[0.2em] text-secondary text-xs font-semibold">Zarafet ve Mukavemet</p>
+                                <h2 className="font-headline text-4xl text-white leading-tight">Kaliteli Kumaşlar,<br/>Güvenilir Ortaklık</h2>
+                                <button onClick={() => navigate('/katalog')} className="mt-6 bg-primary text-white px-8 py-4 rounded-md font-label uppercase tracking-wider text-xs flex items-center gap-3 w-fit border-b-2 border-secondary">
+                                    Kataloğu Görüntüle
+                                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                                </button>
+                            </div>
+                        </section>
+
+                        {/* Trust Bar */}
+                        <section className="bg-primary-container py-8 px-6 flex justify-around items-center gap-4 text-center">
+                            {[
+                                { icon: "history", target: 25, suffix: "+", label: "Yıl Deneyim" },
+                                { icon: "groups", target: 1000, suffix: "+", label: "Mutlu Müşteri" },
+                                { icon: "public", target: 40, suffix: "+", label: "Ülkeye İhracat" },
+                            ].map((stat, i) => (
+                                <React.Fragment key={stat.icon}>
+                                    {i > 0 && <div className="h-10 w-[1px] bg-white/10"></div>}
+                                    <div className="space-y-1">
+                                        <span className="material-symbols-outlined text-secondary text-2xl block mb-1">{stat.icon}</span>
+                                        <p className="font-headline text-2xl text-white font-bold"><AnimatedCounter target={stat.target} suffix={stat.suffix} /></p>
+                                        <p className="font-label text-[10px] uppercase tracking-tighter text-on-primary-container">{stat.label}</p>
+                                    </div>
+                                </React.Fragment>
+                            ))}
+                        </section>
+
+                        {/* Featured Categories */}
+                        <section className="py-16 px-6 bg-surface">
+                            <SectionLabel label="Koleksiyonlar" title="Öne Çıkan Kategoriler" />
+                            <div className="grid grid-cols-2 gap-4">
+                                <div onClick={() => navigate('/katalog')} className="col-span-2 relative aspect-[16/9] rounded-lg overflow-hidden group cursor-pointer">
+                                    <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src={IMAGES.catCotton}/>
+                                    <div className="absolute inset-0 bg-black/20"></div>
+                                    <div className="absolute bottom-4 left-4">
+                                        <span className="bg-white/90 backdrop-blur px-3 py-1 text-[10px] font-label uppercase tracking-widest mb-2 inline-block">Doğal</span>
+                                        <h4 className="text-white font-headline text-xl">Pamuklu</h4>
+                                    </div>
+                                </div>
+                                <div onClick={() => navigate('/katalog')} className="relative aspect-square rounded-lg overflow-hidden group cursor-pointer">
+                                    <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src={IMAGES.catSilk}/>
+                                    <div className="absolute inset-0 bg-black/20"></div>
+                                    <div className="absolute bottom-4 left-4"><h4 className="text-white font-headline text-lg">İpek</h4></div>
+                                </div>
+                                <div onClick={() => navigate('/katalog')} className="relative aspect-square rounded-lg overflow-hidden group cursor-pointer">
+                                    <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src={IMAGES.catLinen}/>
+                                    <div className="absolute inset-0 bg-black/20"></div>
+                                    <div className="absolute bottom-4 left-4"><h4 className="text-white font-headline text-lg">Keten</h4></div>
+                                </div>
+                                <div onClick={() => navigate('/katalog')} className="col-span-2 relative aspect-[21/9] rounded-lg overflow-hidden group mt-2 cursor-pointer">
+                                    <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" src={IMAGES.catSynthetic}/>
+                                    <div className="absolute inset-0 bg-black/30"></div>
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <h4 className="text-white font-headline text-2xl tracking-widest uppercase">Sentetik Serisi</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* Why Choose Us */}
+                        <section className="py-16 px-6 bg-surface-container-low">
+                            <div className="space-y-12">
+                                {[
+                                    { icon: "verified", title: "Kalite Garantisi", desc: "Üretimin her aşamasında titiz kalite kontrol süreçleri uyguluyoruz." },
+                                    { icon: "payments", title: "Rekabetçi Fiyat", desc: "Yüksek üretim kapasitemiz ile en iyi kaliteyi uygun maliyetle sunuyoruz." },
+                                    { icon: "rocket_launch", title: "Hızlı Teslimat", desc: "Küresel lojistik ağımız sayesinde siparişlerinizi zamanında ulaştırıyoruz." },
+                                ].map(item => (
+                                    <div key={item.icon} className="flex gap-6 items-start">
+                                        <div className="bg-white p-4 rounded-xl shadow-sm"><span className="material-symbols-outlined text-secondary text-3xl">{item.icon}</span></div>
+                                        <div>
+                                            <h4 className="font-headline text-xl text-primary mb-2">{item.title}</h4>
+                                            <p className="text-on-surface-variant text-sm leading-relaxed">{item.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+
+                        {/* New Arrivals Carousel */}
+                        <section className="py-16 bg-surface">
+                            <div className="px-6 mb-8 flex justify-between items-end">
+                                <SectionLabel label="Yeni Gelenler" title="Son Koleksiyon" />
+                                <span className="material-symbols-outlined text-primary-container mb-12">east</span>
+                            </div>
+                            <div className="flex overflow-x-auto hide-scrollbar gap-6 px-6 snap-x snap-mandatory" style={{ scrollSnapType: 'x mandatory' }}>
+                                {PRODUCTS.filter(p => p.tag && (p.tag === 'Yeni' || p.tag === 'Premium' || p.tag === 'Stokta')).slice(0, 4).map(p => (
+                                    <div key={p.id} onClick={() => navigate('/katalog')} className="min-w-[280px] snap-center bg-surface-container-lowest rounded-lg overflow-hidden group cursor-pointer" style={{ scrollSnapAlign: 'center' }}>
+                                        <div className="aspect-[3/4] overflow-hidden relative">
+                                            <img className="w-full h-full object-cover" loading="lazy" src={p.img}/>
+                                            {p.tag && <div className="absolute top-4 right-4 bg-secondary text-white text-[10px] px-2 py-1 font-bold uppercase tracking-widest">{p.tag}</div>}
+                                        </div>
+                                        <div className="p-5">
+                                            <p className="text-[10px] text-secondary font-bold uppercase tracking-widest mb-1">{p.type}</p>
+                                            <h5 className="font-headline text-lg text-primary mb-2">{p.name}</h5>
+                                            <div className="flex items-center gap-2 mb-4">
+                                                <span className="w-2 h-2 rounded-full bg-secondary"></span>
+                                                <p className="text-xs text-on-surface-variant">{p.composition}</p>
+                                            </div>
+                                            <p className="font-headline text-primary font-bold">₺{p.pricePerMeter.toFixed(2)} <span className="text-xs font-normal text-outline">/ m</span></p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+
+                        {/* CTA Banner */}
+                        <section className="mx-6 my-16 bg-primary rounded-2xl p-10 text-center relative overflow-hidden">
+                            <div className="absolute inset-0 woven-overlay pointer-events-none"></div>
+                            <div className="relative z-10">
+                                <h3 className="font-headline text-2xl text-white mb-4">Sipariş vermeye hazır mısınız?</h3>
+                                <p className="text-on-primary-container text-sm mb-8 leading-relaxed">Özel talepleriniz ve toplu alımlar için bizimle iletişime geçin.</p>
+                                <div className="flex flex-col gap-3">
+                                    <a className="bg-[#25D366] text-white py-4 rounded-lg font-bold flex items-center justify-center gap-2" href={buildWhatsAppUrl("Merhaba, toptan kumaş fiyatları hakkında bilgi almak istiyorum.")} target="_blank" rel="noopener">
+                                        <span className="material-symbols-outlined">chat</span> WhatsApp ile Yazın
+                                    </a>
+                                    <a className="text-white border border-white/20 py-4 rounded-lg font-medium flex items-center justify-center gap-2" href={`tel:${COMPANY_PHONE.replace(/\s/g,'')}`}>
+                                        <span className="material-symbols-outlined">call</span> {COMPANY_PHONE}
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                    <Footer />
+                </div>
+            );
+        };
+
+        // ============================================================
+        // SECTION 5: PAGE — CATALOG
+        // ============================================================
+
+        const CatalogPage = ({ basket, setBasket }) => {
+            const [activeCategory, setActiveCategory] = useState("all");
+            const [sortBy, setSortBy] = useState("default");
+            const [searchQuery, setSearchQuery] = useState("");
+
+            const filteredProducts = useMemo(() => {
+                let result = [...PRODUCTS];
+                if (activeCategory !== "all") result = result.filter(p => p.category === activeCategory);
+                if (searchQuery.trim()) {
+                    const q = searchQuery.toLowerCase();
+                    result = result.filter(p =>
+                        p.name.toLowerCase().includes(q) ||
+                        p.type.toLowerCase().includes(q) ||
+                        p.composition.toLowerCase().includes(q)
+                    );
+                }
+                switch (sortBy) {
+                    case "price-asc": result.sort((a, b) => a.pricePerMeter - b.pricePerMeter); break;
+                    case "price-desc": result.sort((a, b) => b.pricePerMeter - a.pricePerMeter); break;
+                    case "name": result.sort((a, b) => a.name.localeCompare(b.name, "tr")); break;
+                }
+                return result;
+            }, [activeCategory, sortBy, searchQuery]);
+
+            const toggleBasket = (id) => {
+                setBasket(prev => prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]);
+            };
+
+            return (
+                <div className="page-enter bg-background">
+                    <main className="pt-16 pb-32">
+                        {/* Hero */}
+                        <section className="px-6 py-12 relative overflow-hidden bg-surface-container-low">
+                            <span className="font-sans tracking-[0.2em] uppercase text-xs text-secondary font-semibold mb-4 block">Premium Koleksiyon</span>
+                            <h2 className="font-headline text-4xl text-primary leading-[1.1] mb-4">Toptan Kumaş<br/><span className="italic text-secondary">Kataloğu</span></h2>
+                            <p className="text-on-surface-variant leading-relaxed text-sm max-w-lg">Dünya standartlarında üretim kalitesiyle Gardenya, Poplin ve Döşemelik serilerimizi keşfedin.</p>
+                        </section>
+
+                        {/* Search */}
+                        <section className="px-6 py-4 bg-surface">
+                            <div className="relative">
+                                <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-xl">search</span>
+                                <input
+                                    type="text"
+                                    value={searchQuery}
+                                    onChange={e => setSearchQuery(e.target.value)}
+                                    placeholder="Kumaş ara..."
+                                    className="w-full bg-surface-container-low pl-11 pr-4 py-3 rounded-lg outline-none font-body text-sm border-b-2 border-transparent focus:border-secondary transition-colors"
+                                />
+                            </div>
+                        </section>
+
+                        {/* Category pills */}
+                        <section className="px-6 py-3 bg-surface">
+                            <div className="flex overflow-x-auto hide-scrollbar gap-3">
+                                {CATEGORIES.map(cat => (
+                                    <button
+                                        key={cat.key}
+                                        onClick={() => setActiveCategory(cat.key)}
+                                        className={`px-5 py-2 rounded-md text-sm font-medium whitespace-nowrap transition-all ${
+                                            activeCategory === cat.key
+                                                ? 'bg-primary text-on-primary'
+                                                : 'bg-surface-container-lowest text-on-surface hover:bg-surface-container-high'
+                                        }`}
+                                    >
+                                        {cat.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </section>
+
+                        {/* Sort + Count */}
+                        <section className="px-6 py-3 bg-surface flex items-center justify-between">
+                            <span className="text-sm text-on-surface-variant">{filteredProducts.length} kumaş bulundu</span>
+                            <select
+                                value={sortBy}
+                                onChange={e => setSortBy(e.target.value)}
+                                className="bg-surface-container-lowest text-sm py-1.5 px-3 rounded-md border-none outline-none cursor-pointer font-body"
+                            >
+                                {SORT_OPTIONS.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
+                            </select>
+                        </section>
+
+                        {/* Product Grid */}
+                        <section className="px-6 py-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {filteredProducts.map(p => (
+                                    <div key={p.id} className="group">
+                                        <div className="relative aspect-[3/4] overflow-hidden rounded-lg mb-6">
+                                            <img alt={p.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" loading="lazy" src={p.img}/>
+                                            <div className="absolute top-4 left-4 flex flex-col gap-2">
+                                                <span className="bg-surface/90 backdrop-blur-md px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-primary">{p.type}</span>
+                                                {p.tag && <span className="bg-secondary text-on-tertiary px-3 py-1 text-[10px] uppercase tracking-widest font-bold">{p.tag}</span>}
+                                            </div>
+                                        </div>
+                                        <div className="space-y-4">
+                                            <div className="flex justify-between items-start">
+                                                <div>
+                                                    <h3 className="font-headline text-xl text-primary">{p.name}</h3>
+                                                    <p className="text-sm text-on-surface-variant">{p.composition}, {p.width}</p>
+                                                </div>
+                                                <div className="text-right">
+                                                    <span className="block text-[10px] uppercase tracking-tighter text-secondary font-bold">Toptan Fiyat</span>
+                                                    <span className="text-xl font-bold text-primary">₺{p.pricePerMeter.toFixed(2)} <small className="text-xs font-normal">/mt</small></span>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-center gap-3 py-3">
+                                                <div className="flex items-center gap-2">
+                                                    <div className="w-2 h-2 rounded-full bg-secondary"></div>
+                                                    <span className="text-xs font-medium uppercase tracking-wide">MOQ: {p.moq} Metre</span>
+                                                </div>
+                                                <span className="text-xs text-outline">|</span>
+                                                <span className="text-xs text-on-surface-variant">{p.weight}</span>
+                                            </div>
+                                            <div className="flex gap-3">
+                                                <a href={buildProductWhatsAppUrl(p)} target="_blank" rel="noopener" className="flex-1 bg-primary py-3.5 text-on-primary text-xs uppercase tracking-[0.15em] font-bold hover:bg-primary-container transition-colors rounded-md flex items-center justify-center gap-2">
+                                                    Teklif Al <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                                                </a>
+                                                <button
+                                                    onClick={() => toggleBasket(p.id)}
+                                                    className={`px-4 py-3.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all ${
+                                                        basket.includes(p.id)
+                                                            ? 'bg-secondary text-on-tertiary'
+                                                            : 'bg-surface-container-low text-primary hover:bg-surface-container-high'
+                                                    }`}
+                                                >
+                                                    <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: basket.includes(p.id) ? "'FILL' 1" : "'FILL' 0" }}>shopping_bag</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            {filteredProducts.length === 0 && (
+                                <div className="text-center py-20">
+                                    <span className="material-symbols-outlined text-6xl text-outline/30 mb-4 block">search_off</span>
+                                    <p className="text-on-surface-variant">Aramanızla eşleşen kumaş bulunamadı.</p>
+                                </div>
+                            )}
+                        </section>
+
+                        {/* Newsletter CTA */}
+                        <section className="mx-6 mt-12">
+                            <div className="bg-primary-container p-10 rounded-lg relative overflow-hidden text-center">
+                                <div className="absolute inset-0 woven-overlay opacity-20 pointer-events-none"></div>
+                                <h3 className="font-headline text-2xl text-white mb-4 relative z-10">Özel Üretim Projeleriniz İçin</h3>
+                                <p className="text-on-primary-container mb-8 relative z-10 text-sm">Markanıza özel desen ve renk çalışmalarımızla koleksiyonunuzu güçlendirin.</p>
+                                <a href={buildWhatsAppUrl("Merhaba, özel üretim projemiz için bilgi almak istiyorum.")} target="_blank" rel="noopener" className="relative z-10 inline-block bg-secondary text-on-tertiary px-8 py-3 font-bold uppercase tracking-widest text-xs hover:bg-secondary-container hover:text-on-secondary-container transition-all rounded-md">İletişime Geç</a>
+                            </div>
+                        </section>
+                    </main>
+
+                    {/* Inquiry Basket */}
+                    {basket.length > 0 && (
+                        <div className="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-2xl transition-transform duration-300">
+                            <div className="bg-[#1B2A4A] backdrop-blur-lg border border-[#C9A96E]/20 p-4 rounded-xl shadow-2xl flex items-center justify-between">
+                                <div className="flex items-center gap-4">
+                                    <div className="bg-secondary text-on-tertiary w-10 h-10 rounded-full flex items-center justify-center font-bold">{basket.length}</div>
+                                    <div>
+                                        <p className="text-white text-sm font-bold uppercase tracking-wider">Teklif Sepetiniz</p>
+                                        <p className="text-white/60 text-xs truncate max-w-[160px]">{basket.map(id => { const found = PRODUCTS.find(p => p.id === id); return found ? found.name : ''; }).join(', ')}</p>
+                                    </div>
+                                </div>
+                                <a href={buildBasketWhatsAppUrl(basket)} target="_blank" rel="noopener" className="bg-secondary text-on-tertiary px-5 py-2 rounded-md font-bold text-xs uppercase tracking-widest hover:scale-105 transition-transform flex items-center gap-2">
+                                    Teklifi Tamamla <span className="material-symbols-outlined text-sm">request_quote</span>
+                                </a>
+                            </div>
+                        </div>
+                    )}
+
+                    <Footer />
+                </div>
+            );
+        };
+
+        // ============================================================
+        // SECTION 6: PAGE — ABOUT
+        // ============================================================
+
+        const MilestoneItem = ({ milestone, index }) => {
+            const [ref, isVisible] = useRevealOnScroll(0.2);
+            return (
+                <div ref={ref} className={`relative pl-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: `${index * 150}ms` }}>
+                    <div className="absolute -left-[11px] top-1 w-5 h-5 bg-secondary rounded-full border-4 border-surface shadow-sm"></div>
+                    <span className="font-serif text-xl font-bold text-primary">{milestone.year}</span>
+                    <p className="text-sm text-on-surface-variant mt-1 font-medium">{milestone.title}</p>
+                    <p className="text-xs text-on-surface/60 mt-1">{milestone.desc}</p>
+                </div>
+            );
+        };
+
+        const AdvantageItem = ({ advantage, index }) => {
+            const [ref, isVisible] = useRevealOnScroll(0.15);
+            return (
+                <div ref={ref} className={`bg-surface-container-lowest p-6 rounded-xl flex flex-col items-center text-center shadow-sm transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: `${index * 100}ms` }}>
+                    <span className="material-symbols-outlined text-secondary text-3xl mb-3">{advantage.icon}</span>
+                    <span className="text-xs font-semibold text-primary uppercase tracking-tighter">{advantage.label}</span>
+                </div>
+            );
+        };
+
+        const AboutPage = () => {
+            return (
+                <div className="page-enter bg-background">
+                    <main className="pt-16 pb-24">
+                        <PageHero title="Hakkımızda" imageSrc={IMAGES.heroAbout} />
+
+                        {/* Our Story */}
+                        <section className="px-6 py-16 bg-surface-container-low bg-mesh-overlay">
+                            <div className="space-y-6">
+                                <span className="font-sans tracking-widest uppercase text-xs text-secondary font-semibold">Mirasımız</span>
+                                <h2 className="font-serif text-3xl text-primary leading-tight">Tekstilde Güven ve Zerafetin Hikayesi</h2>
+                                <div className="space-y-4 text-on-surface/80 leading-relaxed text-sm">
+                                    <p>Sebih Textile olarak, çeyrek asrı aşkın süredir tekstil dünyasında yenilikçi çözümler ve üstün kalite anlayışımızla varlık gösteriyoruz.</p>
+                                    <p>Müşteri memnuniyetini odağımıza alarak, her bir ilmekte titizlikle çalışıyor, modern teknolojiyi geleneksel işçilikle harmanlıyoruz. Değerlerimizden ödün vermeden, global pazarda güvenilir bir partner olmayı sürdürüyoruz.</p>
+                                </div>
+                            </div>
+                            <div className="mt-12 relative">
+                                <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-xl ring-1 ring-outline-variant/15">
+                                    <img alt="Fabrika İç Mekan" className="w-full h-full object-cover" loading="lazy" src={IMAGES.factory}/>
+                                </div>
+                                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-secondary-container/20 rounded-full blur-2xl -z-10"></div>
+                            </div>
+                        </section>
+
+                        {/* Timeline */}
+                        <section className="px-8 py-20 bg-surface">
+                            <div className="mb-12">
+                                <h3 className="font-serif text-2xl text-primary">Kilometre Taşlarımız</h3>
+                                <div className="h-1 w-12 bg-secondary mt-2"></div>
+                            </div>
+                            <div className="relative border-l-2 border-primary-container/20 ml-3 space-y-12 pb-4">
+                                {MILESTONES.map((m, i) => <MilestoneItem key={m.year} milestone={m} index={i} />)}
+                            </div>
+                        </section>
+
+                        {/* Advantages Grid */}
+                        <section className="px-6 py-16 bg-surface-container-low">
+                            <h3 className="font-serif text-2xl text-primary text-center mb-12">Neden Sebih Textile?</h3>
+                            <div className="grid grid-cols-2 gap-4">
+                                {ADVANTAGES.map((adv, i) => <AdvantageItem key={adv.icon} advantage={adv} index={i} />)}
+                            </div>
+                        </section>
+
+                        {/* Certifications */}
+                        <section className="px-6 py-16 bg-surface">
+                            <h4 className="font-sans tracking-widest uppercase text-[10px] text-on-surface-variant text-center mb-8">Sertifikalarımız ve Standartlarımız</h4>
+                            <div className="flex justify-center items-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                                <img alt="Oeko-Tex" className="h-10 w-auto" loading="lazy" src={IMAGES.certOeko}/>
+                                <img alt="ISO 9001" className="h-10 w-auto" loading="lazy" src={IMAGES.certISO}/>
+                                <img alt="GOTS" className="h-10 w-auto" loading="lazy" src={IMAGES.certGOTS}/>
+                            </div>
+                        </section>
+                    </main>
+                    <Footer />
+                </div>
+            );
+        };
+
+        // ============================================================
+        // SECTION 7: PAGE — CONTACT
+        // ============================================================
+
+        const ContactPage = () => {
+            const [submitted, setSubmitted] = useState(false);
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                setSubmitted(true);
+                setTimeout(() => setSubmitted(false), 3000);
+            };
+
+            return (
+                <div className="page-enter bg-background">
+                    <main className="pt-24 pb-24 overflow-x-hidden">
+                        {/* Title */}
+                        <section className="px-6 mb-12">
+                            <span className="font-label text-secondary tracking-widest uppercase text-xs mb-2 block">Bize Ulaşın</span>
+                            <h2 className="font-headline text-4xl text-primary leading-tight mb-4">İletişim</h2>
+                            <p className="font-body text-on-surface-variant text-lg leading-relaxed max-w-xs">Bizimle iletişime geçin.</p>
+                        </section>
+
+                        {/* Quick Contact Bento */}
+                        <section className="px-6 grid grid-cols-1 gap-4 mb-16">
+                            <a className="bg-secondary-container rounded-xl p-6 flex items-center justify-between group transition-all duration-300" href={buildWhatsAppUrl("Merhaba, Sebih Textile ile iletişime geçmek istiyorum.")} target="_blank" rel="noopener">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-secondary">
+                                        <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>chat</span>
+                                    </div>
+                                    <div>
+                                        <p className="font-label text-xs uppercase tracking-wider text-on-secondary-container">WhatsApp Üzerinden</p>
+                                        <p className="font-headline text-lg text-on-secondary-fixed-variant">Hemen Bize Yazın</p>
+                                    </div>
+                                </div>
+                                <span className="material-symbols-outlined text-on-secondary-container group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </a>
+
+                            <div className="bg-surface-container-low rounded-xl p-6 space-y-6">
+                                <div className="flex gap-4">
+                                    <span className="material-symbols-outlined text-secondary">call</span>
+                                    <div>
+                                        <p className="font-label text-[10px] uppercase tracking-widest text-outline">Telefon</p>
+                                        <p className="font-body font-medium">{COMPANY_PHONE}</p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4">
+                                    <span className="material-symbols-outlined text-secondary">mail</span>
+                                    <div>
+                                        <p className="font-label text-[10px] uppercase tracking-widest text-outline">E-Posta</p>
+                                        <p className="font-body font-medium">info@sebihtextile.com</p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4">
+                                    <span className="material-symbols-outlined text-secondary">location_on</span>
+                                    <div>
+                                        <p className="font-label text-[10px] uppercase tracking-widest text-outline">Merkez Ofis</p>
+                                        <p className="font-body font-medium leading-snug">Merkez Mah. Ayazma Yolu, No:44 Kağıthane, İstanbul</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* Map */}
+                        <section className="mb-16">
+                            <div className="relative w-full h-64 bg-surface-container-highest overflow-hidden">
+                                <img alt="Istanbul haritası" className="w-full h-full object-cover grayscale opacity-60" loading="lazy" src={IMAGES.map}/>
+                                <div className="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                    <div className="relative">
+                                        <div className="absolute -inset-4 bg-secondary/20 rounded-full pulse-glow"></div>
+                                        <span className="material-symbols-outlined text-secondary text-4xl relative z-10" style={{ fontVariationSettings: "'FILL' 1" }}>location_on</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* Contact Form */}
+                        <section className="px-6 mb-16">
+                            <div className="mb-8">
+                                <h3 className="font-headline text-2xl text-primary mb-2">Mesaj Bırakın</h3>
+                                <div className="h-0.5 w-12 bg-secondary"></div>
+                            </div>
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                <div>
+                                    <label className="block font-label text-[10px] uppercase tracking-widest text-secondary mb-1">Adınız Soyadınız</label>
+                                    <input required className="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-secondary transition-colors py-3 px-1 outline-none font-body" type="text" placeholder="Ad Soyad"/>
+                                </div>
+                                <div>
+                                    <label className="block font-label text-[10px] uppercase tracking-widest text-secondary mb-1">Şirket Adı</label>
+                                    <input className="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-secondary transition-colors py-3 px-1 outline-none font-body" type="text" placeholder="Şirketiniz"/>
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block font-label text-[10px] uppercase tracking-widest text-secondary mb-1">E-Posta</label>
+                                        <input required className="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-secondary transition-colors py-3 px-1 outline-none font-body" type="email" placeholder="Email"/>
+                                    </div>
+                                    <div>
+                                        <label className="block font-label text-[10px] uppercase tracking-widest text-secondary mb-1">Telefon</label>
+                                        <input className="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-secondary transition-colors py-3 px-1 outline-none font-body" type="tel" placeholder="Tel"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="block font-label text-[10px] uppercase tracking-widest text-secondary mb-1">Konu</label>
+                                    <select className="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-secondary transition-colors py-3 px-1 outline-none font-body appearance-none">
+                                        <option>Toptan Satış</option>
+                                        <option>Üretim Talebi</option>
+                                        <option>Katalog Talebi</option>
+                                        <option>Diğer</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="block font-label text-[10px] uppercase tracking-widest text-secondary mb-1">Mesajınız</label>
+                                    <textarea required className="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-secondary transition-colors py-3 px-1 outline-none font-body resize-none" rows="4" placeholder="Size nasıl yardımcı olabiliriz?"></textarea>
+                                </div>
+                                <button type="submit" className="w-full bg-primary text-on-primary py-5 rounded-md font-label uppercase tracking-widest text-xs flex items-center justify-center gap-2 group hover:bg-primary-container transition-all">
+                                    {submitted ? '✓ Gönderildi!' : 'Gönder'}
+                                    {!submitted && <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">send</span>}
+                                </button>
+                            </form>
+                        </section>
+
+                        {/* Working Hours */}
+                        <section className="px-6">
+                            <div className="bg-surface-container p-8 rounded-xl relative overflow-hidden">
+                                <div className="woven-overlay absolute inset-0 pointer-events-none"></div>
+                                <h4 className="font-headline text-xl text-primary mb-6 flex items-center gap-3 relative z-10">
+                                    <span className="material-symbols-outlined text-secondary">schedule</span>
+                                    Çalışma Saatleri
+                                </h4>
+                                <div className="space-y-4 font-body text-sm text-on-surface relative z-10">
+                                    {WORKING_HOURS.map(wh => (
+                                        <div key={wh.days} className={`flex justify-between items-center ${wh.dimmed ? 'opacity-50' : 'border-b border-outline-variant pb-2'}`}>
+                                            <span className="font-medium">{wh.days}</span>
+                                            <span>{wh.hours}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                    <Footer />
+                </div>
+            );
+        };
+
+        // ============================================================
+        // SECTION 8: APP SHELL & ROUTER
+        // ============================================================
+
+        const App = () => {
+            const [basket, setBasket] = useState([]);
+            const [menuOpen, setMenuOpen] = useState(false);
+
+            return (
+                <HashRouter>
+                    <ScrollToTop />
+                    <div className="relative min-h-screen flex flex-col">
+                        <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+                        <MobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+                        <Routes>
+                            <Route path="/" element={<HomePage />} />
+                            <Route path="/katalog" element={<CatalogPage basket={basket} setBasket={setBasket} />} />
+                            <Route path="/hakkimizda" element={<AboutPage />} />
+                            <Route path="/iletisim" element={<ContactPage />} />
+                        </Routes>
+                        <WhatsAppButton />
+                        <BottomNav />
+                    </div>
+                </HashRouter>
+            );
+        };
+
+        const container = document.getElementById('root');
+        const root = createRoot(container);
+        root.render(<App />);
+    </script>
+</body>
+</html>
