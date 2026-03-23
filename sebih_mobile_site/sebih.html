@@ -203,6 +203,16 @@
             { days: "Pazar", hours: "Kapalı", dimmed: true },
         ];
 
+        const LANGUAGES = [
+            { code: "TR", flag: "🇹🇷", label: "Türkçe" },
+            { code: "EN", flag: "🇬🇧", label: "English" },
+            { code: "UK", flag: "🇺🇦", label: "Українська" },
+            { code: "KZ", flag: "🇰🇿", label: "Қазақша" },
+            { code: "RU", flag: "🇷🇺", label: "Русский" },
+            { code: "AZ", flag: "🇦🇿", label: "Azərbaycan" },
+            { code: "AR", flag: "🇸🇦", label: "العربية" },
+        ];
+
         // ============================================================
         // SECTION 2: UTILITY HOOKS & HELPERS
         // ============================================================
@@ -338,6 +348,46 @@
             return hidden;
         };
 
+        const LanguageSwitcher = () => {
+            const [open, setOpen] = useState(false);
+            const [activeLang, setActiveLang] = useState("TR");
+            const ref = useRef(null);
+            const current = LANGUAGES.find(l => l.code === activeLang);
+
+            useEffect(() => {
+                const close = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+                document.addEventListener('mousedown', close);
+                document.addEventListener('touchstart', close);
+                return () => { document.removeEventListener('mousedown', close); document.removeEventListener('touchstart', close); };
+            }, []);
+
+            return (
+                <div ref={ref} className="relative">
+                    <button onClick={() => setOpen(!open)} className="flex items-center gap-1.5 px-2 py-1 rounded-md hover:bg-surface-container-low transition-colors">
+                        <span className="text-base leading-none">{current.flag}</span>
+                        <span className="font-label tracking-widest uppercase text-xs text-primary font-bold">{current.code}</span>
+                        <span className={`material-symbols-outlined text-sm text-outline transition-transform duration-200 ${open ? 'rotate-180' : ''}`}>expand_more</span>
+                    </button>
+                    {open && (
+                        <div className="absolute right-0 top-full mt-2 bg-surface-container-lowest rounded-lg shadow-xl border border-outline-variant/20 py-1 min-w-[180px] z-[100]">
+                            {LANGUAGES.map(lang => (
+                                <button
+                                    key={lang.code}
+                                    onClick={() => { setActiveLang(lang.code); setOpen(false); }}
+                                    className={`w-full flex items-center gap-3 px-4 py-2.5 text-left hover:bg-surface-container-low transition-colors ${activeLang === lang.code ? 'bg-surface-container-low' : ''}`}
+                                >
+                                    <span className="text-base leading-none">{lang.flag}</span>
+                                    <span className="font-label text-xs uppercase tracking-widest text-primary">{lang.code}</span>
+                                    <span className="text-xs text-on-surface-variant">{lang.label}</span>
+                                    {activeLang === lang.code && <span className="material-symbols-outlined text-secondary text-sm ml-auto">check</span>}
+                                </button>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
         const Header = ({ menuOpen, setMenuOpen }) => {
             const location = useLocation();
             const headerHidden = useHideOnScroll();
@@ -358,11 +408,7 @@
                         <Link key={link.path} to={link.path} className={`font-label text-sm uppercase tracking-widest transition-colors ${location.pathname === link.path ? 'text-secondary font-bold' : 'text-primary hover:text-secondary'}`}>{link.label}</Link>
                     ))}
                 </nav>
-                <div className="flex items-center gap-2">
-                    <span className="font-label tracking-widest uppercase text-xs text-secondary font-bold">TR</span>
-                    <span className="text-outline-variant">|</span>
-                    <span className="font-label tracking-widest uppercase text-xs text-primary opacity-50">EN</span>
-                </div>
+                <LanguageSwitcher />
             </header>
             );
         };
